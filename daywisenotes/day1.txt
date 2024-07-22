@@ -1,0 +1,159 @@
+1. name.
+2. years of experience.
+3. have you seen the content.
+4. what is your expectation from the training program.
+
+https://github.com/noteonbg/CplusLennox.git
+
+
+
+
+Design is non determistic..
+
+being vague is not solve anybody problem.
+finally design should decompose into a series of function calls.
+
+
+look at function
+
+1. it gets called by the hardware or system.
+2. some programmer calls it.
+
+bad intent +Good process, intent will win..
+
+
+anybody who tells I understood architecture.
+where is the excel sheet.
+
+Design
+1. justify your layering..
+2. how are you communicating between layers both positive and negative things.
+3. consistency..
+
+Know architecture
+i know entry point, or exit point.
+
+Project success = process * technology * tools *culture.
+
+world largest fight is between standard and product.
+customer likes standard
+companies like product and so what company does deviate from the standard
+and still tell the customer i like the standard and thenslowly make the customer
+forget the standard use the product.
+
+three basic things..
+
+0. nobody gets killed by respecting theory.. 
+1. loyalty towards project.
+2. tolerating uncertainty and doing poc when we have  a doubt.
+3. generalize our learning..
+
+before doing bad things, what to do tell good things.
+
+
+what does it mean
+1. have the excel sheet.
+2. we have to respect functions and variables.
+3. performance have me measured...
+4. c++ .. problem of design..  ==nobody can use complete c++in the project because they
+dont need it.
+
+proof that we are using c++
+
+1. reference usage.
+2. oops part we can do it provided we know oops.
+3. c++ specific things, exception handling, templates, operator overloading...
+4. C++ 11 features... till c++ 17 features introduction c++20..
+
+Object oriented programming
+1. interface or abstraction. ( this is what .h was doing in c)****
+2. encapsulation ( yes we can do this in c.. static functions, static global variables)
+3. relationship between classes ( dependency, association , inheritance -- becomes difficult
+in c)*****
+4. namespace.. ( may not be possible in c)
+
+1 and 3 are difficult and we should slow down when we are telling we are following oo.
+
+
+intent of 4 things to aid maintenance.
+when X and Y are interacting when X changes how do you keep Y immune.
+
+
+c++17.. 
+gcc family
+Microsoft family
+clang ...
+
+C++11 major version..
+
+1. lamda expressions..
+2. stl improvmenets.
+3. focus on figuring how to get maximum things done at compile constexpr..
+4. thread library become part of it..
+5. smart pointers, dont need to do allocate and dont need to deallocate still use
+the heap..
+
+
+c++17.
+1. structured bindings..
+2. new algorithms in the STL>
+
+11.00 to 11.15AM
+
+1.00PM
+2.00PM
+
+3.30PM
+
+6.00PM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

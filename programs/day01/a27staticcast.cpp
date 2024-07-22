@@ -8,7 +8,7 @@ int main() {
     std::cout << "Double value: " << doubleVal << std::endl;
 
 
-   #if 0 
+   #if 1
     char c = 10;       // 1 byte
     int *p = (int*)&c; // 4 byte
 

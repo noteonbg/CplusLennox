@@ -23,13 +23,23 @@ public:
     ~MedicalDevice() { std::cout << "destdructor at work"; }
 };
 
-#if 0
+#if 1
+
+
+//person Y did this you cannot see functiond efinition
+void displayMedicalDetails(MedicalDevice* devicePtr)
+{
+devicePtr->displayDetails();
+
+
+}
+
+//person X is doing it
 int main()
 {
     MedicalDevice medicalDevice("Blood Pressure Monitor", "BP12345", 1001);
-    MedicalDevice* devicePtr = &medicalDevice;
-    devicePtr->displayDetails();
-
+    displayMedicalDetails(&medicalDevice);
+    
 
 }
 #endif

@@ -6,6 +6,7 @@ private:
     int deviceID;
     std::string name;
     std::string manufacturer;
+    
 
 public:
     // Constructor to initialize the member variables

@@ -1,4 +1,18 @@
+
 #if 1
+
+int main()
+{
+    char c =3;
+    int *i = (int*)&c;
+
+
+}
+
+#endif
+
+
+#if 0
 
 #include <iostream>
 
@@ -14,6 +28,7 @@ return 0;
 
 
 #endif
+
 #if 0
 #include <iostream>
 
@@ -34,6 +49,8 @@ MyClass createObject() {
 }
 
 int main() {
+
+    std::cout << "ritual";
     MyClass objReturned = createObject();
     return 0;
 }

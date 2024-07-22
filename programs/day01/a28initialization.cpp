@@ -1,4 +1,4 @@
-#if 0
+#if 1
 
 #include <iostream>
 
@@ -7,7 +7,7 @@ int main() {
     int a = 10;
 
     // 2. Uniform initialization (C++11 and later)
-    int b{20};
+    int b{20.3};
 
     // 3. Default initialization
     int c; // c will have an undefined value (garbage)
