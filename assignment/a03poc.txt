@@ -1,0 +1,52 @@
+poc.txt
+
+program 1 -- Keep the file name as program1.cpp
+
+1. create a hello world program, compile and run it.
+
+--------------------------------------------------------------------
+Program 2 -- keep the file name  as program2.cpp
+Look at a03classexample.cpp and generate a class called Person with
+the following attributes.. name of type string, age of int,address which is of type
+string and ensure methods are written for assigning values to all these attributes
+write 2 constructors.
+
+ write a main function create an 2 objects of this class,each one object using
+one of the constructor and call the functions present in the class.
+ 
+Look at a06passbyrefernce.cpp, and a21passbyreference.cpp
+write a a function called changePersonDetails whose input argument is 
+int age,string address passed by refernce, this should change the object
+age and address.
+
+Look at a09pointertoobject.cpp, and a21passbyreference.cpp
+write a a function called printPersonDetails whose input argument is 
+Person pointer type, this should print all the person details like
+age, name and address.
+
+Look at a23friend.cpp 
+In the person class , add a friend function similar to a23friend.cpp for comparing
+two person objects comparison should be based on age . create a new function
+called testfriend outside the class and in that call the friend function.
+and then call testfriend function from the main function.
+
+Look at a25constfunctions.cpp
+add const keyword at necessary functions and variables. if need be..
+
+--------------------------------------------------------
+Program 3.. save Program2.cpp as Program3.cpp
+
+look at a12constructoranddestructor.cpp
+
+In the person class, ensure the member age is dynamically allocated.
+and ensure a destructor is written to deallocate memory. in the main
+function create the person object and check whether destructor is getting called.
+remember person object is not on heap.
+
+write a copy constructor in the Person class. look at  a18copyconstructor.cpp
+
+overload the assignment operator, >,< and == operators look at a27operatoroverloading.cpp
+and a28assingmentoperator.cpp. > and < is based on age comparison on person
+and == should compare all the attributes ie name, age and address.
+
+--------------------------------------------------------------------------------

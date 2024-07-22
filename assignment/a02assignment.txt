@@ -6,8 +6,9 @@ and division, think what all could be the basics
 you need to put in the design.
 
 
-For all the below assinments look assinments
-make use of the a01codesample.txt present in the assingment folder.
+For all the below assinments 
+make use of the 
+a01codesample.cpp.
 
 
 program 2 
