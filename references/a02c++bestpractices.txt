@@ -1,0 +1,151 @@
+https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
+
+1. Clear and Consistent Coding Style:
+   - Maintain a consistent coding style throughout your project. Whether you prefer the Google C++ Style Guide, LLVM, or another style, stick to it.
+   - Use descriptive variable and function names. Avoid cryptic abbreviations.
+   - Follow a consistent indentation and formatting pattern.
+
+2. Reasonable Lines of Code:
+   - Avoid writing excessively long lines of code. Break down complex logic into smaller, manageable functions.
+   - Aim for functions that perform a single task and do it well.
+
+3. Distinguish Parameters:
+   - Be consistent in how you pass parameters to functions. Use const references for read-only parameters.
+   - Clearly document the purpose and expected behavior of each parameter.
+
+4. Headers and Includes:
+   - Avoid using the `using namespace` directive in header files. It can lead to namespace pollution.
+   - Keep header files clean and focused on declarations. Minimize unnecessary includes.
+
+5. Memory Management:
+   - Prefer smart pointers (such as `std::unique_ptr` and `std::shared_ptr`) over raw pointers. They automatically manage memory and help prevent memory leaks.
+   - Avoid manual memory management whenever possible. Use RAII principles.
+
+6. Resource Acquisition Is Initialization (RAII):
+   - Use RAII to manage resources (memory, file handles, etc.). Acquire resources in constructors and release them in destructors.
+   - Leverage smart pointers, containers, and other RAII-friendly constructs.
+
+7. Exception Safety:
+   - Write exception-safe code. Use RAII to ensure proper resource cleanup during exceptions.
+   - Be cautious with exception specifications (prefer noexcept over dynamic exception specifications).
+
+8. Avoid Global Variables:
+   - Minimize the use of global variables. They can lead to unexpected interactions and make code harder to reason about.
+   - Prefer local variables with limited scope.
+
+9. Use Standard Library Features:
+   - Leverage the C++ Standard Library. It provides efficient and well-tested components.
+   - Use algorithms, containers (e.g., `std::vector`, `std::map`), and utility classes (e.g., `std::string`, `std::chrono`).
+
+10. Testing and Debugging:
+    - Write unit tests for critical functionality. Use testing frameworks like Google Test or Catch2.
+    - Use assertions and logging for debugging. Avoid printf-style debugging.
+
+Remember that these guidelines are just a starting point. As you gain experience, adapt and refine your practices. Happy coding! 🚀
+
+
+In context of embedded programming consider
+
+
+
+1. Minimize Dynamic Memory Allocation
+
+- Avoid `new` and `delete`: Prefer stack allocation or pre-allocated memory pools. Dynamic memory allocation can lead to fragmentation and unpredictable latencies.
+  
+  // Instead of this
+  int* ptr = new int[100];
+  // Do this
+  int array[100];
+  
+
+- Use Fixed-size Containers: Use fixed-size arrays or containers from libraries like `boost::static_vector` instead of standard dynamic containers like `std::vector`.
+
+### 2. Efficient Data Structures and Algorithms
+
+- Choose the Right Data Structures: Select data structures that provide the best performance for your use case. For example, use arrays for fast index-based access and linked lists for quick insertion and deletion.
+  
+- Optimize Algorithms: Choose algorithms with the lowest possible time complexity. For example, prefer `O(log n)` or `O(n)` algorithms over `O(n^2)`.
+
+### 3. Reduce Function Call Overheads
+
+- Inline Functions: Use `inline` functions to reduce the overhead of function calls.
+  
+  inline int add(int a, int b) {
+      return a + b;
+  }
+  
+
+- Avoid Virtual Functions: Virtual functions add overhead due to the virtual table lookup. Use them only when necessary for polymorphism.
+
+### 4. Memory Management
+
+- Use Smart Pointers Carefully: While `std::unique_ptr` and `std::shared_ptr` can help manage resources, they add some overhead. Use them judiciously and prefer `std::unique_ptr` over `std::shared_ptr` when ownership semantics allow.
+  
+- Avoid Unnecessary Copies: Use references or pointers to pass large objects to functions to avoid unnecessary copying.
+  
+  void processLargeObject(const LargeObject& obj); // Pass by reference
+  
+
+### 5. Optimize for Cache Performance
+
+- Data Locality: Organize data to maximize cache hits. For example, 
+use arrays of structures instead of structures of arrays.
+  
+  // Structure of arrays (SOA)
+  struct {
+      int x[100];
+      int y[100];
+  };
+
+  // Array of structures (AOS)
+  struct Point {
+      int x, y;
+  };
+  Point points[100];
+  
+
+### 6. Minimize Code Size
+
+- Remove Unused Code: Use tools like `gcov` and `lcov` to identify and remove dead code.
+  
+- Optimize Libraries: Link only the necessary parts of libraries using techniques like static linking and link-time optimization (LTO).
+
+### 7. Use Compiler Optimizations
+
+- Enable Optimizations: Use compiler flags to enable optimizations. For example, `-O2` or `-O3` with GCC.
+    g++ -O2 -o my_program my_program.cpp
+  
+
+- Profile-Guided Optimization (PGO): Use profiling information to optimize the most frequently executed paths.
+  
+  g++ -fprofile-generate -o my_program my_program.cpp
+  ./my_program
+  g++ -fprofile-use -o my_program my_program.cpp
+  
+
+### 8. Control Concurrency and Timing
+
+- Use Real-time OS Features: If working on a real-time system, use features provided by the real-time operating system (RTOS) for task scheduling and timing control.
+  
+- Avoid Busy Waiting: Use sleep functions or OS-provided mechanisms to wait for events instead of busy waiting loops.
+
+### 9. Efficient Error Handling
+
+- Avoid Exceptions: Exceptions can be expensive in terms of both time and space. Use error codes or status flags instead.
+  
+  bool openFile(const std::string& filename, File& file) {
+      if (/* failure condition */) {
+          return false;
+      }
+      // Open file
+      return true;
+  }
+  
+
+### 10. Use Lightweight Libraries and Frameworks
+
+- Select Minimal Libraries: Choose libraries that are specifically designed for resource-constrained environments, avoiding bloated or feature-rich libraries that you don’t fully utilize.
+
+By adhering to these best practices, you can write C++ code that is efficient, predictable, and 
+well-suited for resource-constrained environments. These techniques help to minimize memory usage, reduce CPU overhead, and 
+ensure that your applications run smoothly even with limited resources.

@@ -1,0 +1,4559 @@
+C++ programming langauge.
+
+a language preferred if you want to create software infrastructure,value resource efficiency
+and high performance , there is a good chance of preferring C++.
+
+
+a typical process for writing programs in c++. 
+
+we write source code, compile it and we get some executable file .
+we have source  code x.cpp compile it we git some binary x.exe or x.out and that can talk with the os
+
+
+two category of programs applications and libraries .
+an application can run independently.
+an library must be used with some other application to work.
+
+example if we have a function called f1 in a libary. we cannot run the f1 function independently, we have to use it some other
+application then we use f1. Library can come inform of static and dynamic libraries details we will figure out later on.
+
+
+Basic development options to choose from.
+Clang/LLVM:
+Flexibility: If you need a flexible compiler that can be extended to support new languages or representations, Clang is an excellent choice.
+Portability: Clang compiles natively on Windows, making it suitable for cross-platform development.
+GCC:
+C/C++ Codebases: If your codebase primarily consists of C and C++, and you aim for optimal performance on specific architectures, GCC is a solid choice.
+Widely Adopted: GCC is the default compiler for many systems and works well out of the box.
+
+Install g++ or clang  compiler depending on platform and check whether the option works.
+by using the terminal.
+
+g++ --version typically for g++, these steps are not worth remembering on need basis we need to find out
+and use it.
+
+
+Basic coding phase 1.
+
+1. take some texteditor and write a file with a extension called .cpp and then write some hello world c++
+code. then come to the command prompt and type. let us say your file name is hello.cpp
+
+g++ hello.cpp
+you will see a file generated called /a.out , this is binary file generated after compiling
+so run it in the command prompt
+
+#include <iostream>
+
+int main()
+{
+
+    std::cout << "hello";
+    return 0;
+     
+
+}
+
+every c++ application that needs to run , needs a main function.
+here we are using a variable called cout , which is present in the namespace std
+and we are printing hello.
+
+#incude <iostrea> that line adds something to your source code, what we will
+see later on..if you have source has x lines of code and after doing a #include
+it will be x+ lines of code, while compiling.
+
+
+dont bother much about this syntax later on we will see what this syntax means.
+as of now , just think std::cout  << "hello" , will print things on the console.
+
+
+#include <iostream>
+
+int main()
+{
+
+    int i =0;
+    std::cout << "put some value for i";
+    std::cin >> i;
+    std::cout << "the value you entered for i is " << i;
+    return 0;
+    
+
+}
+
+In the above code.. int i , means we created a variable called i which is of data type int.
+cout line as usual prints some thing on the console.
+cin variable , will help us getting input from the keyboard.
+and after that we are using cout to print the value of the variable entered by the user.
+compile this code and run it and observe what is the output you are getting .
+
+
+// for single line comment
+Commenting the code
+// This is a single-line comment
+int main() {
+    // Code here
+    return 0;
+}
+
+
+/* This is a multi-line comment
+   spanning multiple lines.
+   It won't affect the program's execution. */
+int main() {
+    /* Code here */
+    return 0;
+}
+
+/*
+this is used for multiline comment.
+
+*/
+
+use comments to document your code and not for not running your code.. if you want some code 
+not to be compiled by the compiler consider using
+#if 0
+   code
+#endif
+this will ensure code written is ignored by the compiler ... we will what this syntax means
+later on.
+
+some points to consider..
+Every programming langauge has got variables and functions.
+when we think of variables we should be fully conscious about
+
+1. what is data type of the variable.
+
+data type indicates two things content and operation.
+example if we say int variable, 
+content of int could be 3
+int i =3
+we can multiply, subtract or add to this i, this are called operations.
+choosing data type without knowing what operations we want to perform is not a good idea.
+remember this, we will think how to consider it while defining classes.
+
+
+2. what is scope in which the variable is used
+scope is how long a variable is available in memory . example commonly used scopes 
+are 
+
+local. this means the variable is created inside a function and it is not removed
+from memory once the function finishes execution.
+
+global variable exists outside all functions..and it is available when the application
+starts till the application ends.
+
+Obviously the above is a simplification of scope. but most important thing is to be
+aware what is scope of the variable when we create it.
+
+
+Key thing is to remember when we say variable we should be fully aware of
+1. data type of the variable.
+2. scope of the variable.
+
+example of some readily available data types in c++ is.
+
+
+
+1. **Primitive Data Types**:
+    - These are built-in or predefined data types that can be used directly to declare variables.
+    - Examples:
+        - **Integer (`int`)**: Typically requires 4 bytes of memory space and ranges from -2147483648 to 2147483647.
+        - **Character (`char`)**: Requires 1 byte of memory space and represents individual characters (ASCII values).
+        - **Boolean (`bool`)**: Stores either `true` or `false`.
+        - **Floating Point (`float`)**: Stores single-precision floating-point values (decimal numbers).
+        - **Double Floating Point (`double`)**: Stores double-precision floating-point values.
+        - **Void (`void`)**: Represents a valueless entity, often used for functions that don't return a value.
+        - **Wide Character (`wchar_t`)**: Similar to `char`, but with a larger size (platform-dependent).
+    - These data types are fundamental and essential for basic programming tasks.
+
+2. **Derived Data Types**:
+    - Derived data types are built upon primitive data types.
+    - Four common derived data types:
+        - **Function**: Represents function pointers.
+        - **Array**: A collection of elements of the same data type.
+        - **Pointer**: Stores memory addresses.
+        - **Reference**: An alias for an existing variable.
+    - These types provide additional flexibility and functionality.
+
+3. **User-Defined Data Types**:
+    - Defined by the user based on specific requirements.
+    - Examples:
+        - **Class**: Used for object-oriented programming.
+        - **Structure**: Similar to a class but with public members by default.
+        - **Union**: Stores different data types in the same memory location.
+        - **Enumeration**: Defines a set of named integer constants.
+        - **Typedef-defined Data Type**: Creates an alias for an existing data type.
+
+Dont trust this, when need comes visit official website and see what data types are inbuilt in c++
+and consider using them depending on what operations you want to perform.
+
+
+
+Introduction to Class.
+
+1. Class can related to Object orientedness which we will see later as of now
+it is sufficient to understand class is like a data type, data type which we 
+are creating becuase our project demands it.
+
+just like int has got some content and some operations like multiply , subtract or add .
+Similarly when we create a class we have to think in terms of what will be its content
+and what wil be the operations we plan to perform. for example.
+
+We want to consider creating a class called MedicalDevice, which has got
+some serialNumber, some manufacturer,device name. we dont have any
+inbuilt data type called MedicalDevice... so since our project demands it
+we create the data type called MedicalDevice.. how by creating a class.
+
+
+#include <iostream>
+#include <string>
+
+class MedicalDevice {
+private:
+    int deviceID;
+    std::string name;
+    std::string manufacturer;
+
+public:
+    
+    MedicalDevice(int id, std::string deviceName,  std::string deviceManufacturer)
+        : deviceID(id), name(deviceName), manufacturer(deviceManufacturer) {}
+
+
+     void setDeviceDetails(int id, const std::string& deviceName, const std::string& deviceManufacturer) {
+        deviceID = id;
+        name = deviceName;
+        manufacturer = deviceManufacturer;
+    }
+
+
+
+    // Getter methods
+    int getDeviceID() const {
+        return deviceID;
+    }
+
+    std::string getName() const {
+        return name;
+    }
+
+    std::string getManufacturer() const {
+        return manufacturer;
+    }
+
+    
+};
+
+
+
+In the above example , you see a class MedicalDevice
+understand this we are creating a new data type called MedicalDevice, becuase our project
+needs it.
+
+Remember data type means content + operations.
+you see variables like deviceid, manufacturer, name. these will be content of our data type
+MedicalDevice, you see them in the private section, that means these variables
+are not accessible outside the class.
+
+jsut a note , string is an inbuilt data type which typically models string. 
+
+
+In the public section you will see function. like 
+setDeviceDetails
+getDeviceID
+getName and other functions..
+think of these functions like operations on the data type.. 
+
+const usage in context of functions indicate that they cannot change the content
+of the data type, ie variables present in the private section.
+
+so class consist of content + operations. 
+content is the varibles present in the class, in the private section typically
+operation is the functions present in the class, typically in the public section.
+
+you also see a function called constructor, you can identify it by
+functionnname and classname being same. this function will get called
+automatically when you create the variable of the class.
+
+MedicalDevice(int id, std::string deviceName,  std::string deviceManufacturer)
+        : deviceID(id), name(deviceName), manufacturer(deviceManufacturer) {}
+
+what the above line does is at time of creating the variable of the class, we are assinging
+deviceid with id given as input.
+name with devicename given as input 
+manufacturer with deviceManufacturer given in the input.
+
+After seeing the class definition we should know that what we have done is
+told the system hey I want you to know this data type called MedicalDevice , these are its
+content and these are the operations...  most important class helps us in creating a project
+specific data type.
+
+
+Ok now time to use the data type we created. how do we use MedicalDevice class
+we created, we do it by creating the variable of the data type. typically
+as of now we will assume variable of the class means object .
+
+int i ;// we now i is the variable of data type int
+
+MedicalDevice device; // here device is variable of data type MedicalDevice.
+
+remember when we create this... it will call the constructor.
+
+Look at the below code..
+
+int main() {
+    // Create an variable of MedicalDevice
+    MedicalDevice myDevice(12345, "Blood Pressure Monitor", "HealthTech Inc.");
+    // doing operations Access and print device information
+    std::cout << "Device ID: " << myDevice.getDeviceID() << std::endl;
+    std::cout << "Device Name: " << myDevice.getName() << std::endl;
+    std::cout << "Manufacturer: " << myDevice.getManufacturer() << std::endl;
+    return 0;
+
+}
+
+in the code myDevice.getDeviceID(), myDevice.getName(), myDevice.getManufacturer()
+these function calls are like operating on the variable. 
+
+example
+int i =3;
+i = i *3;// this is multipliation operation, in context of object
+
+
+MedicalDevice myDevice(12345, "Blood Pressure Monitor", "HealthTech Inc.");
+ myDevice.getDeviceID() //this is operation like i=i*3
+
+ so summary is , when you see class, think of a data type usually and ask yourself
+ what is contents and what are the operations. we will talk about this in detail
+ during object oriented concepts.
+
+Difference between C and c++
+
+C has got a concept called structure and most of times the concepts like writing multiple
+functions with same name but different input arguments, writing functions which
+are independnt of data type and object oriented implementation can become tedious
+if not impossible to implement here c++ fits in . So we use c++ in two ways.
+
+1. as a super set of C. with C with additonal features provided by C++
+2. Object oriented programming concepts implementatable in c++ in a relatively easier way.
+
+Function overloading 
+1. Function overloading is a way thru which you can have multiple functions
+in the application whose name is same but input arguments must differ in some way.
+Creating ambuigity will result in a compilation error.
+
+1. **Overloading Using Different Types of Parameters**:
+   - In this example, we create an `absolute` function that computes the absolute value. It works for both integers and floating-point numbers.
+   - The function is overloaded with different parameter types.
+   - Here's the code:
+
+   
+    #include <iostream>
+    using namespace std;
+
+    // Function with float type parameter
+    float absolute(float var) {
+        if (var < 0.0)
+            var = -var;
+        return var;
+    }
+
+    // Function with int type parameter
+    int absolute(int var) {
+        if (var < 0)
+            var = -var;
+        return var;
+    }
+
+    int main() {
+        // Call function with int type parameter
+        cout << "Absolute value of -5 = " << absolute(-5) << endl;
+
+        // Call function with float type parameter
+        cout << "Absolute value of 5.5 = " << absolute(5.5f) << endl;
+
+        return 0;
+    }
+   
+   - Output:
+     Absolute value of -5 = 5
+     Absolute value of 5.5 = 5.5
+   
+2. **Overloading Using Different Number of Parameters**:
+   - In this example, we create a `display` function that prints integer and double values.
+   - The function is overloaded with different numbers of parameters.
+   - Here's the code:
+
+    ```cpp
+    #include <iostream>
+    using namespace std;
+
+    // Function with 2 parameters
+    void display(int var1, double var2) {
+        cout << "Integer number: " << var1;
+        cout << " and double number: " << var2 << endl;
+    }
+
+    // Function with double type single parameter
+    void display(double var) {
+        cout << "Double number: " << var << endl;
+    }
+
+    // Function with int type single parameter
+    void display(int var) {
+        cout << "Integer number: " << var << endl;
+    }
+
+    int main() {
+        int a = 5;
+        double b = 5.5;
+
+        // Call function with int type parameter
+        display(a);
+
+        // Call function with double type parameter
+        display(b);
+
+        // Call function with 2 parameters
+        display(a, b);
+
+        return 0;
+    }
+    
+
+   - Output:
+    
+     Integer number: 5
+     Double number: 5.5
+     Integer number: 5 and double number: 5.5
+    
+
+Remember that overloaded functions may or may not have different return types, but they must have different arguments.
+
+
+C++ keywords
+
+keywords (also known as reserved words) have special meanings to the compiler and are always written in lowercase. These keywords serve specific purposes within the language and cannot be used for variable names, function names, or any other identifiers. 
+
+1. **Data Types and Modifiers**:
+    - `int`, `float`, `double`, `char`, `bool`: Fundamental data types.
+    - `const`, `volatile`: Type qualifiers.
+    - `auto` (since C++11): Type inference.
+    - `static`, `extern`: Storage class specifiers.
+    - `typedef`, `using`: Type aliases.
+
+2. **Control Flow and Loops**:
+    - `if`, `else`, `switch`, `case`, `default`: Conditional statements.
+    - `while`, `do`, `for`: Looping constructs.
+    - `break`, `continue`, `goto`: Control flow modifiers.
+
+3. **Functions and Scopes**:
+    - `return`, `void`: Function-related keywords.
+    - `namespace`, `class`, `struct`, `enum`: Scope-related keywords.
+    - `public`, `private`, `protected`: Access specifiers.
+
+4. **Memory Management and Pointers**:
+    - `new`, `delete`: Dynamic memory allocation.
+    - `nullptr` (since C++11): Null pointer.
+    - `this`: Pointer to the current object.
+
+5. **Exception Handling**:
+    - `try`, `catch`, `throw`: Exception handling.
+
+6. **Templates and Generics**:
+    - `template`, `typename`, `class`: Template-related keywords.
+    - `typename` (used in template metaprogramming).
+
+7. **Other Keywords**:
+    - `sizeof`, `typeid`: Operator-related keywords.
+    - `alignas`, `alignof` (since C++11): Alignment control.
+    - `constexpr` (since C++11): Compile-time evaluation.
+    - `static_assert` (since C++11): Compile-time assertions.
+
+Remember that these keywords have predefined meanings and are essential building blocks of C++ code. They form the foundation on which you write your programs!
+
+
+-----------------------------------------------------------------------------
+
+note on variables.
+
+the word variable is a superset word , so it means many things.. so it is better to be
+specific in c++, example
+
+int i;
+int *ptr;
+int &x;
+
+here is a variable of type int
+here ptr is a pointer variable of type int
+here x is reference of type int.
+
+so the asummption we make is when we say variable we are referring to non pointer type
+and not a reference,so in this case we are referring to i and not ptr or x.
+we will see what a pointer and reference means .
+
+When we say pointer.. we should know the following.
+
+
+1. there is some variable let us X.
+2. we are creating a  pointer let us Y.
+3. we make Y point to X.
+The reason is to avoid making copies of X, if we did not use pointer, then we will do pass by value.
+ie when we pass X to a function we make a copy of X. now instead of X, if we pass Y.
+we make a copy of Y but then it is better than making copy of X, becuase if X takes 10 bytes
+copy of X takes 10 Bytes. but if we do pass it pointer, typically pointer of any type
+is fixed we copy less bytes..
+
+let us understand thru this example.
+
+#include <iostream>
+#include <string>
+
+// Function to modify the value via a pointer (pass by address)
+void modifyValue(int* ptr) {
+    (*ptr) += 10; // Increment the value by 10
+}
+
+
+class Person {
+private:
+    std::string name;
+
+public:
+    Person(const std::string& initialName) : name(initialName) {}
+
+    // Function to change the name using a pointer
+    void changeName(std::string* newNamePtr) {
+        if (newNamePtr != nullptr) {
+            name = *newNamePtr;
+        }
+    }
+
+    // Getter method for name
+    std::string getName() const {
+        return name;
+    }
+};
+
+void usingobject() {
+    // Create a Person object
+    Person person("Alice");
+
+    // Display the initial name
+    std::cout << "Initial name: " << person.getName() << std::endl;
+
+    // Modify the name using a pointer
+    std::string newName = "Bob";
+    person.changeName(&newName);
+
+    // Display the updated name
+    std::cout << "Updated name: " << person.getName() << std::endl;
+
+    
+}
+
+
+int main() {
+    int num = 42;
+    std::cout << "Original value: " << num << std::endl;
+    // Pass the address of 'num' to the function
+    modifyValue(&num);
+    std::cout << "Modified value: " << num << std::endl;
+    usingobject();
+    return 0;
+}
+
+
+Observe the line void modifyValue(int* ptr) here input arument is a pointer.
+if the pointer was not used, we should have passed an int , where by int copy 
+will be made.
+
+person.changeName(&newName);
+Observe the line here, we passing string as a pointer. &newName, newName is variable
+&variable will result in a pointer. what is advantage we got, first thing
+if the string is 20 bytes, if we did not use the pointer we would made a copy of 20 bytes
+becuase we are using a pointer now only 4 bytes will be copied..
+
+Remember variable sizes can vary.
+pointer size is a constant.
+whether you have int pointer, or MedicalDevice pointer, size is fixed.
+so one major reason for using pointers in C, is to avoid making copies of the variable.
+
+when ever we create a  pointer remember the following syntax.
+
+int *ptr;
+here ptr is being created, observe data type before *.. this means we are creating
+the pointer.
+
+
+ptr =&somevariablename;// observe now we did not use * with the ptr, that means
+we are using the pointer not creating it to refer to the some variable already created.
+
+
+*ptr=44;// observe now we are using *, that means pointer is operating on what it is pointing to
+in this case some variable.. hence when use *ptr =44, the somev ariablename which was
+assinged earlier is being changed to 44. 
+
+so with respect to pointer, ask yourself 
+
+1. where is the pointer created.
+2. where is the pointer pointing to.
+3. am i operating on the pointer or what the pointer is pointing to.
+
+trivial but important thing, remember in real life, pointer creation will be done by person x
+and pointer assingment will be done by person Y. think why...?
+
+Pointers do one more thing called dynamic allocation, ie allocation of memory done by programmer
+at runtime. we will see it later on.
+
+
+
+Reference concept in c++
+
+1. reference in c++ indicates that we want to create an alias for an existing variable.
+this is preferred in c++ when compared to pointers 
+
+suppose you have a variable called int i;whcin contains value 3.
+int i=3;
+int &k =i;// here k is called as reference for i.
+this means k also refers to i. when you change k , i also will not change.
+
+two things are important to know.
+1. reference needs to be assigned the moment you create it.
+2. reference cannot be reassinged to a new varaible.
+
+in the above case, when we told k is a reference for i.
+we cannot assign k for some other variable now..
+
+& usage with reference and & usage in address should be clear.
+if we write datatype &something. it means something is a reference.
+if just write &something, without data type, that means we are referring to a pointer.
+
+
+int &m =n;// here m is a reference.
+f2(&k);// assuming k is a variable we are passing a pointer as input to a function f2
+
+example of passing by reference
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Person {
+public:
+    string name;
+
+    Person(const string& initialName) : name(initialName) {}
+};
+
+// Function to change the name using a reference
+void changeName(Person& person, const string& newName) {
+    person.name = newName;
+}
+
+int main() {
+    Person alice("Alice");
+
+    cout << "Original name: " << alice.name << endl;
+
+    // Pass the Person object by reference
+    changeName(alice, "Bob");
+
+    cout << "Updated name: " << alice.name << endl;
+
+    return 0;
+}
+
+
+Note be careful while you are returning pointers or references from a function.
+slow down and ask yourself the question , is the variable which the pointer points to
+or reference has been created is it available , after you come out from the function , if it
+is a local variable obviously it wont be alive.. so stop stop and check when you
+return references or pointers from a function.
+
+
+---------------------------------------------------------------------------
+
+Arrays.
+
+1. Arrays indicate a group of things which are continous with a fixed size.
+int devices[10];
+here devices is an array, of size 10 and contains int data type.
+
+whenever we deal with arrays remember 
+1. remember you can access each element in the array by an index.
+2. you must know its size typically 
+
+From a datastructure point of view, remember array is a linear datastructure
+that means you need to search sequentially only.
+
+simple example
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Declare and initialize an integer array
+    int numbers[5] = {7, 5, 6, 12, 35};
+
+    // Print array elements
+    cout << "The numbers are: ";
+    for (int i = 0; i < 5; ++i) {
+        cout << numbers[i] << " ";
+    }
+
+    return 0;
+}
+
+
+#include <iostream>
+using namespace std;
+
+class Employee {
+private:
+    int id;
+    string name;
+
+public:
+    // Constructor to initialize id and name
+    Employee(int empId, const string& empName) : id(empId), name(empName) {}
+
+    void putdata() {
+        cout << id << " " << name << endl;
+    }
+};
+
+int main() {
+    // Create an array of Employee objects with assigned values
+    Employee emp[3] = {
+        Employee(101, "Alice"),
+        Employee(102, "Bob"),
+        Employee(103, "Carol")
+    };
+
+    cout << "Employee Data:" << endl;
+    for (int i = 0; i < 3; ++i) {
+        emp[i].putdata();
+    }
+
+    return 0;
+}
+creating an array of objects is simple provided we treat object just like a data type
+if you observe instead of the int here we have employee.or medicaldevice or Patient... 
+key thing not to forget is Class is just a datatype which has been created becuase
+our project demands it.
+
+passing arrays as input to functions
+#include <iostream>
+using namespace std;
+
+// Function to modify an array (pass by reference)
+void modifyArray(int arr[], int size) {
+    for (int i = 0; i < size; ++i) {
+        arr[i] += 10; // Increment each element by 10
+    }
+}
+
+int main() {
+    int myArray[] = {1, 2, 3, 4, 5};
+
+    // Pass the array by reference
+    modifyArray(myArray, 5);
+
+    cout << "Modified array: ";
+    for (int i = 0; i < 5; ++i) {
+        cout << myArray[i] << " ";
+    }
+
+    return 0;
+}
+observe function calling of modifyArray(myArray, 5);
+array name is given and size is passed.
+
+
+#include <iostream>
+using namespace std;
+
+// Function to modify an array (pass by pointer)
+void modifyArray(int* arr, int size) {
+    for (int i = 0; i < size; ++i) {
+        arr[i] += 10; // Increment each element by 10
+    }
+}
+
+int main() {
+    int myArray[] = {1, 2, 3, 4, 5};
+
+    // Pass the array by pointer
+    modifyArray(myArray, 5);
+
+    cout << "Modified array: ";
+    for (int i = 0; i < 5; ++i) {
+        cout << myArray[i] << " ";
+    }
+
+    return 0;
+}
+Observe array can also be passed via pointer.
+
+
+Creating pointer for objects
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class MedicalDevice {
+private:
+    string deviceName;
+    string serialNumber;
+    int manufacturerID;
+
+public:
+    // Constructor to initialize attributes
+    MedicalDevice(const string& name, const string& serial, int manufID)
+        : deviceName(name), serialNumber(serial), manufacturerID(manufID) {}
+
+    // Method to display device details
+    void displayDetails() {
+        cout << "Device Name: " << deviceName << endl;
+        cout << "Serial Number: " << serialNumber << endl;
+        cout << "Manufacturer ID: " << manufacturerID << endl;
+    }
+};
+
+int main()
+{
+    MedicalDevice medicalDevice("Blood Pressure Monitor", "BP12345", 1001);
+    MedicalDevice* devicePtr = &medicalDevice;
+    devicePtr->displayDetails();
+
+
+}
+
+
+1. Treat MedicalDevice as a data type.
+2. observe we created an object called medicalDevice.
+3. we have devicePtr which is of type MedicalDevice and we are making it point to
+the medicalDevice object.
+4. to access anything in that object we use  -> operator.
+
+Remember if you are using
+x->y, assuming X is a pointer of some class then Y must be present in the class.
+-> operator applies in pointer context, only if you have a pointer belonging to some class.
+
+---------------------------------------------
+
+The this pointer.
+
+1. by now we have seen how the class is used like a data type.
+inside a class we have variables and functions. for example
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class MedicalDevice {
+private:
+    string deviceName;
+    string serialNumber;
+    int manufacturerID;
+
+public:
+    // Constructor to initialize attributes
+    MedicalDevice(const string& name, const string& serial, int manufID)
+        : deviceName(name), serialNumber(serial), manufacturerID(manufID) {}
+
+    // Method to display device details
+    void displayDetails() {
+        cout << "Device Name: " << deviceName << endl;
+        cout << "Serial Number: " << serialNumber << endl;
+        cout << "Manufacturer ID: " << manufacturerID << endl;
+    }
+};
+
+int main()
+{
+    MedicalDevice medicalDevice("Blood Pressure Monitor", "BP12345", 1001);
+    MedicalDevice anotherMedicalDevice("Blood Pressure Monitor", "BP12345", 1001);
+    medicalDevice.displayDetails();
+    anotherMedicalDevice.displayDetails();
+
+
+}
+
+If you observe in the privae section there are variables like deviceManufacturer,devicename..
+this as you know forms the content of the data type.
+
+Observe functions in this case only one function which is displayDetails. which
+can be termed as operation of the data type.
+
+observe no word called static is used with displayDetails function, implication of static
+function we will discuss later, but good to know that displayDetails no static keywords
+is used,
+
+so when we call any non static function by using an object. inside the non static function
+automatically a pointer is created called this, it will point to the calling object.
+for example
+
+we see the below lines in the above code
+medicalDevice.displayDetails();
+anotherMedicalDevice.displayDetails();
+
+1. we note displayDetails is called by medicalDevice and anotherMedicalDevice object.
+once you are inside the function displayDetails a pointer called this gets created automatically.
+it will point to medicalDevice object, when medicalDevice.displayDetails();
+and it will pointer to anotherMedicalDevice object, when the line anotherMedicalDevice.displayDetails();
+is called
+
+when to use it.
+1. if you are inside the non static function and you want to refer to the calling object
+consider using this.
+2. if inside a non static function, if there is a local variable with the same name as
+the member variable, then you can use this before the member variable to differentiate
+it from the local variable.
+
+example
+
+
+class Rectangle {
+private:
+    double length;
+    double width;
+
+public:
+    // Constructor
+    Rectangle(double len, double wid) : length(len), width(wid) {}
+
+    // Calculate area using 'this' pointer
+    double calculateArea() {
+        return this->length * this->width;
+    }
+
+    // Set dimensions using 'this' pointer
+    void setDimensions(double length, double width) {
+        this->length = len;
+        this->width = wid;
+    }
+};
+
+In this example observe, setDimensions function, observe, length and width given as input
+is name same as length, width given in the private section. how to differentiate
+length and width in the private section from the local variable length and breadth
+inside the function setDimensions, we have to use this before the variable given in the private
+section.
+
+There is another reason called function chaining find out.. and key thing while doing
+the code remember you are inside a non static function and you want to know which object is calling
+the function, hence this will help you identifying the calling object.
+
+
+----------------------------------------------------------------------------
+
+dynamic alloaction of memory.
+
+when we create variables typically memory allocation is taken care by the system and removal
+of the variable from the memory is also taken care by the system. for example
+
+void f1()
+{
+int i =3;
+
+
+}
+in this case when the function f1 is called
+i is allocated memory by the system, when fucntion has returned i is removed from memory.
+when programmer wants to tell I want to alloate memory while running of the program
+we term it is a dynmic memory allocation. since programmer is allocating memory
+programmer should also take care of deallocation of memory.
+
+so the key thing.
+
+1. programmer has decided to allocate memory on need basis at runtime.
+2. system will not be responsbile for dealloating this memory
+3. programmer at whatever point he feels he does not that memory should deallocate.
+
+The operators used for doing this in c++ is new for allocating memory
+and delete for deallocating memory.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Allocate memory for an integer using new
+    int* pInt = new int;
+    if (!pInt) {
+        cout << "Allocation of memory failed" << endl;
+    } else {
+        *pInt = 29;
+        cout << "Value of pInt: " << *pInt << endl;
+    }
+
+    // Allocate memory for a float using new
+    float* pFloat = new float(75.25);
+    cout << "Value of pFloat: " << *pFloat << endl;
+
+    // Allocate memory for an array of integers using new
+    int n = 5;
+    int* pArray = new int[n];
+    if (!pArray) {
+        cout << "Allocation of memory failed" << endl;
+    } else {
+        for (int i = 0; i < n; ++i) {
+            pArray[i] = i + 1;
+        }
+        cout << "Values stored in the block of memory: ";
+        for (int i = 0; i < n; ++i) {
+            cout << pArray[i] << " ";
+        }
+        cout << endl;
+    }
+
+    // Free the allocated memory
+    delete pInt;
+    delete pFloat;
+    delete[] pArray;
+
+    return 0;
+}
+
+Observe the line 
+int* pInt = new int;
+here we have allocated the memory for an int.
+
+float* pFloat = new float(75.25);
+here we have allocated memory for the float.
+
+    
+int* pArray = new int[n];
+here we have allocated memory for an array.
+
+in all cases we should be conscious about
+1. what did we allocate memory for . individual value or a group
+2. not lose the pointer which we got after the alloation.
+3. when we dont feel the need for the memory, then tell the system deallocate the memory
+
+delete pInt;
+    delete pFloat;
+    delete[] pArray;
+
+Observe the delete syntax for deleting memory allocated for an array.
+
+Programemr deallocating memory leads to lot of problems in the code, so we have a concept
+called smart pointers which we see later on. currently if we realize that
+dynamic allocation means programmer needs to allocate memory and deallocate memory is sufficient.
+
+
+new and delete with respect to objects.
+suppose we have a class called x
+X *obj =new X;// then what we should know new operator will invoke the constructor.
+
+There is a special function in the class called Destructor, which is indicated
+by ~classname() {  }, this function gets called whenever object is removed from the memory
+This destructor would make sense usually in the class if we are doing dynamic allocation
+
+delete obj will result in destructor call on the class to which the obj pointer belongs to.
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class MedicalDevice {
+private:
+    string deviceName;
+    string serialNumber;
+    int manufacturerID;
+
+public:
+    // Constructor to initialize attributes
+    MedicalDevice(const string& name, const string& serial, int manufID)
+        : deviceName(name), serialNumber(serial), manufacturerID(manufID) {
+        cout << "MedicalDevice object created: " << deviceName << endl;
+    }
+
+    // Destructor
+    ~MedicalDevice() {
+        cout << "MedicalDevice object destroyed: " << deviceName << endl;
+    }
+
+    // Method to display device details
+    void displayDetails() {
+        cout << "Device Name: " << deviceName << endl;
+        cout << "Serial Number: " << serialNumber << endl;
+        cout << "Manufacturer ID: " << manufacturerID << endl;
+    }
+};
+
+int main() {
+    // Create a MedicalDevice object
+    MedicalDevice device("Blood Pressure Monitor", "BP12345", 1001);
+
+    // Display device details
+    device.displayDetails();
+
+    // The destructor will be called automatically when 'device' goes out of scope
+
+    return 0;
+}
+
+In this code observe the medical class, you will see one constructor
+and destructor. Constructors can be many based on the need of the business logic
+
+observe in the  main function device object is created, that time constructor
+will get called. 
+
+No dynamic memory allocation has been used, so device object is removed from memory
+by the system when we come out of the main function, when system is about to remove
+the object, it will call the destructor.
+
+Observe that destructor is called before the object is removed from the memory.
+
+Now some observations
+1. observe the class does not have any dynamic memory allocation so technically
+speaking the destructor is not needed.
+
+
+Now observe the below code
+
+class MedicalDevice {
+private:
+    string deviceName;
+    string serialNumber;
+    int *manufacturerID;
+
+public:
+    // Constructor to initialize attributes
+    MedicalDevice(const string& name, const string& serial, int manufID)
+        : deviceName(name), serialNumber(serial) {
+
+        manufacturerID =new int;  //observe dynamic allocation
+        *manufacturerID=manufID;   
+        cout << "MedicalDevice object created: " << deviceName << endl;
+    }
+
+    // Destructor
+    ~MedicalDevice() {
+        delete manufacturerID;
+        cout << "MedicalDevice object destroyed: " << deviceName << endl;
+    }
+
+    // Method to display device details
+    void displayDetails() {
+        cout << "Device Name: " << deviceName << endl;
+        cout << "Serial Number: " << serialNumber << endl;
+        cout << "Manufacturer ID: " << manufacturerID << endl;
+    }
+};
+
+
+1. in the constructor we are allocating dynamic memory allocation for manufacturerID
+2. it wont be removed from memory until programmer does.
+3. object is not on heap, only one content of the object is on heap.
+4. so how to remove memory for manufacturerID, answer is destructor, when object
+is removed tell the system hey remove the memory allocated for manufacturerID.
+
+
+int main() {
+    // Create a MedicalDevice object
+    MedicalDevice device("Blood Pressure Monitor", "BP12345", 1001);
+
+    // Display device details
+    device.displayDetails();
+
+    // The destructor will be called automatically when 'device' goes out of scope
+
+    return 0;
+}
+
+
+In C++, `int&& rref = 20;` declares an **rvalue reference** named `rref` that refers to an integer literal `20`. Let's break down what this means:
+
+1. **Rvalue Reference (`int&&`)**:
+   - The `int&&` syntax represents an rvalue reference.
+   - An rvalue reference is used to bind to temporary (rvalue) objects.
+   - It allows you to extend the lifetime of temporary objects.
+   - Rvalue references are commonly used for move semantics and perfect forwarding.
+
+2. **Initialization**:
+   - `rref` is initialized with the value `20`.
+   - Since `20` is an rvalue (a temporary value), it can be bound to an rvalue reference.
+
+3. **Lifetime Extension**:
+   - The lifetime of the temporary value `20` is extended to match the lifetime of `rref`.
+   - This allows you to use `rref` as if it were a regular variable.
+
+In summary, `int&& rref = 20;` creates an rvalue reference `rref` that refers to the temporary value `20`. Rvalue references are powerful tools for efficient resource management and move semantics in C++. 
+
+Learn more about rvalue references (https://en.cppreference.com/w/cpp/language/reference) ³.
+
+
+
+1. **Move Semantics**:
+   - **Move semantics** is a feature introduced in C++11 that optimizes the transfer of resources (such as memory ownership) from one object to another.
+   - It allows efficient movement of data without unnecessary copying.
+   - Move semantics are particularly useful for large objects, containers, and resource management (e.g., memory allocation, file handles).
+
+2. **Rvalue References**:
+   - An **rvalue reference** is a new type of reference introduced in C++11.
+   - It is denoted by placing a double ampersand (`&&`) after a type.
+   - Rvalue references allow binding to temporary (rvalue) objects.
+   - They are used for implementing move semantics.
+
+3. **Why Move Semantics?**:
+   - Consider scenarios where you want to transfer ownership of resources (e.g., dynamically allocated memory, file handles) from one object to another.
+   - Without move semantics, you'd need to make deep copies, which can be expensive.
+   - Move semantics allow you to efficiently transfer ownership by "moving" the resources from one object to another.
+
+4. **How Rvalue References Enable Move Semantics**:
+   - When you have an rvalue reference, you can modify the temporary object it refers to.
+   - Move constructors and move assignment operators take advantage of rvalue references to efficiently transfer resources.
+   - Example:
+
+     ```cpp
+     class MyString {
+     private:
+         char* data;
+
+     public:
+         // Move constructor
+         MyString(MyString&& other) noexcept : data(other.data) {
+             other.data = nullptr; // Transfer ownership
+         }
+
+         // Other constructors, destructor, etc.
+     };
+
+     // Usage:
+     MyString createString() {
+         MyString temp("Hello");
+         return temp; // Move semantics: temp is an rvalue
+     }
+     ```
+
+5. **Benefits of Move Semantics**:
+   - Reduced memory overhead (no unnecessary copying)
+   - Faster performance (avoid deep copies)
+   - Improved resource management (e.g., smart pointers, containers)
+
+In summary, move semantics and rvalue references allow efficient resource management and enable the transfer of ownership between objects. They are essential for writing high-performance C++ code! 
+
+Learn more about move semantics [here](https://learn.microsoft.com/en-us/cpp/cpp/rvalue-reference-declarator-amp-amp?view=msvc-170) ².
+
+noexcept means the function is not expected to throw any exception.
+
+
+
+Class and Structures both can be created to demonstrate project specific data type
+by default class is private and structure is public
+
+Unions
+
+
+ union is a user-defined data type that allows you to define members of different types within the same memory location. Unlike structures, where each member has its own separate memory, union members share the same memory space. The size of the union is equal to the size of the largest data type among its members.
+ 
+ We define a MyUnion union with three members: intValue, charValue, and floatValue.
+We assign values to these members and observe how they share the same memory location.
+Note that modifying one member affects the other members due to their shared memory.
+
+Remember that unions are useful when you need to store different types of data in a compact manner. However, be cautious about accessing the correct member based on the context!
+
+
+Look at the below example how it can be used..
+
+
+#include <iostream>
+using namespace std;
+
+union MyUnion {
+    int intValue;
+    char charValue;
+    float floatValue;
+};
+
+int main() {
+    MyUnion u;
+
+    // Assign values to union members
+    u.intValue = 42;
+    cout << "Integer value: " << u.intValue << endl;
+
+    u.charValue = 'A';
+    cout << "Character value: " << u.charValue << endl;
+
+    u.floatValue = 3.14;
+    cout << "Float value: " << u.floatValue << endl;
+
+    // Accessing union members
+    cout << "After float assignment, integer value: " << u.intValue << endl;
+
+    return 0;
+}
+
+
+#if 0
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class MedicalDevice {
+private:
+    string deviceName;
+    int deviceType; // 0: Thermometer, 1: Blood Pressure Monitor, 2: Pulse Oximeter
+
+    union DeviceData {
+        double temperature; // For thermometers
+        int systolicBP;     // For blood pressure monitors
+        double oxygenLevel; // For pulse oximeters
+    } data;
+
+public:
+    MedicalDevice(const string& name, int type) : deviceName(name), deviceType(type) {}
+
+    void setData(double value) {
+        switch (deviceType) {
+            case 0: // Thermometer
+                data.temperature = value;
+                break;
+            case 1: // Blood Pressure Monitor
+                data.systolicBP = static_cast<int>(value);
+                break;
+            case 2: // Pulse Oximeter
+                data.oxygenLevel = value;
+                break;
+        }
+    }
+
+    void displayData() {
+        cout << "Device Name: " << deviceName << endl;
+        switch (deviceType) {
+            case 0:
+                cout << "Temperature: " << data.temperature << " °C" << endl;
+                break;
+            case 1:
+                cout << "Systolic BP: " << data.systolicBP << " mmHg" << endl;
+                break;
+            case 2:
+                cout << "Oxygen Level: " << data.oxygenLevel << "%" << endl;
+                break;
+        }
+    }
+};
+
+int main() {
+    MedicalDevice thermometer("Thermometer", 0);
+    thermometer.setData(37.5);
+    thermometer.displayData();
+
+    MedicalDevice bpMonitor("Blood Pressure Monitor", 1);
+    bpMonitor.setData(120);
+    bpMonitor.displayData();
+
+    MedicalDevice pulseOximeter("Pulse Oximeter", 2);
+    pulseOximeter.setData(98.5);
+    pulseOximeter.displayData();
+
+    return 0;
+}
+
+
+
+#endif
+
+
+
+
+
+Inline functions.
+
+#include <iostream>
+using namespace std;
+
+// Inline function to calculate the cube of a number
+inline int cube(int s) {
+    return s * s * s;
+}
+
+int main() {
+    int side = 3;
+
+    // Call the inline function
+    int result = cube(side);
+
+    cout << "Cube of " << side << " is " << result << endl;
+
+    return 0;
+}
+
+
+inline functions are used to reduce the function call overhead. 
+An inline function is expanded in line when it is called, meaning that the entire code of the
+ inline function gets inserted or substituted at the point of the inline function call. 
+ 
+ This substitution is performed by the C++ compiler at compile time.
+#include <iostream>
+using namespace std;
+
+// Inline function to calculate the cube of a number
+inline int cube(int s) {
+    return s * s * s;
+}
+
+int main() {
+    int side = 3;
+
+    // Call the inline function
+    int result = cube(side);
+
+    cout << "Cube of " << side << " is " << result << endl;
+
+    return 0;
+}
+
+Remember that inlining is only a request to the compiler, not a command. The compiler can choose to ignore the request for inlining based on various factors. Inline functions are most effective for small, frequently used functions.
+
+Certainly! Let’s discuss automatic inlining by the compiler in C++.
+
+Automatic Inlining:
+Automatic inlining refers to the compiler’s decision to inline a function without requiring the inline keyword.
+When a function is marked as inline, it is a request to the compiler to consider inlining it.
+However, the compiler can automatically decide to inline certain functions even if they are not explicitly marked as inline.
+
+Conditions for Automatic Inlining:
+The compiler analyzes various factors to determine whether to inline a function:
+Function Size: Smaller functions are more likely to be inlined.
+Function Complexity: Simple functions with minimal control flow are good candidates.
+Call Frequency: Frequently called functions are more likely to be inlined.
+Compiler Optimization Level: Higher optimization levels increase the chances of inlining.
+Syntactical Dependencies: Some situations (e.g., function pointers, external linkage) prevent inlining.
+
+The compiler may automatically inline the add function because it is small, simple, and frequently called.
+Benefits of Automatic Inlining:
+Reduced function call overhead.
+Improved performance due to fewer function calls.
+Better optimization opportunities for the compiler.
+Compiler Disassembly:
+To verify whether a function is inlined, you can disassemble the binary code.
+Observe whether there is a direct call to the function or if the code is inlined.
+Remember that automatic inlining is a compiler optimization, and the decision is made based on various factors.
+
+
+Overloading constructor functions
+
+1. let us we have a class called X. 
+2. we can write a constructor in class X. 
+3. we can write overload the constructors in class x
+4. why means the business logic demands that X class object can be created in many ways.
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class MedicalDevice {
+private:
+    string serialNumber;
+    string deviceName;
+    int manufacturerID;
+
+public:
+    // Constructor with no arguments
+    MedicalDevice() {
+        serialNumber = "Unknown";
+        deviceName = "Unnamed Device";
+        manufacturerID = 0;
+    }
+
+    // Constructor with serial number and name
+    MedicalDevice(const string& serial, const string& name) {
+        serialNumber = serial;
+        deviceName = name;
+        manufacturerID = 0;
+    }
+
+    // Constructor with all properties
+    MedicalDevice(const string& serial, const string& name, int manufID) {
+        serialNumber = serial;
+        deviceName = name;
+        manufacturerID = manufID;
+    }
+
+    // Getter methods
+    string getSerialNumber() const {
+        return serialNumber;
+    }
+
+    string getDeviceName() const {
+        return deviceName;
+    }
+
+    int getManufacturerID() const {
+        return manufacturerID;
+    }
+};
+
+int main() {
+    // Creating instances of MedicalDevice
+    MedicalDevice device1; // Calls the first constructor (no arguments)
+    MedicalDevice device2("SN123", "Blood Pressure Monitor"); // Calls the second constructor
+    MedicalDevice device3("SN456", "Thermometer", 789); // Calls the third constructor
+
+    // Displaying device information
+    cout << "Device 1: Serial Number = " << device1.getSerialNumber() << ", Name = " << device1.getDeviceName() << ", Manufacturer ID = " << device1.getManufacturerID() << endl;
+    cout << "Device 2: Serial Number = " << device2.getSerialNumber() << ", Name = " << device2.getDeviceName() << ", Manufacturer ID = " << device2.getManufacturerID() << endl;
+    cout << "Device 3: Serial Number = " << device3.getSerialNumber() << ", Name = " << device3.getDeviceName() << ", Manufacturer ID = " << device3.getManufacturerID() << endl;
+
+    return 0;
+}
+In this example observe in the MedicalDevice class there are many constructors
+that means constructos are overloaded... function with same name
+and different input arguments..
+
+copy constructor.
+ copy constructor is needed when the c++ feels there is a need to make a copy
+of an object. for copy constructor you must recognize two things.
+
+1 an object is already there.
+2 a new object needs to be created based on the above object.
+
+Example if we have a class called X.
+
+X obj;// here obj is getting created no need for copy constructor.
+
+
+X obj1 = obj;// now obj1 needs to get created based on obj. copy constructor needed.
+
+Signature of the copy constructor is X(const X &temp)
+observe the input argument of the constructor is  referene of the same class.
+
+This is automatically provided by the compiler.but in our class if we are using
+any dynamic allocation, then system given copy constructor gives problems so you
+can consider writing your own copy constructor.
+
+Let us see three scenarios.
+
+copy constructor written but actually not needed becuase compiler given copy constructor is 
+enough.
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class MedicalDevice {
+private:
+    string serialNumber;
+    string deviceName;
+    int manufacturerID;
+
+public:
+    // Constructor with no arguments
+    MedicalDevice() {
+        serialNumber = "Unknown";
+        deviceName = "Unnamed Device";
+        manufacturerID = 0;
+    }
+
+    // Constructor with serial number and name
+    MedicalDevice(const string& serial, const string& name) {
+        serialNumber = serial;
+        deviceName = name;
+        manufacturerID = 0;
+    }
+
+    // Constructor with all properties
+    MedicalDevice(const string& serial, const string& name, int manufID) {
+        serialNumber = serial;
+        deviceName = name;
+        manufacturerID = manufID;
+    }
+
+    // Copy constructor 
+    MedicalDevice(const MedicalDevice& other) {
+        serialNumber = other.serialNumber;
+        deviceName = other.deviceName;
+        manufacturerID = other.manufacturerID;
+    }
+
+    // Getter methods
+    string getSerialNumber() const {
+        return serialNumber;
+    }
+
+    string getDeviceName() const {
+        return deviceName;
+    }
+
+    int getManufacturerID() const {
+        return manufacturerID;
+    }
+};
+
+int main() {
+    // Creating an instance of MedicalDevice
+    MedicalDevice originalDevice("SN123", "Blood Pressure Monitor", 789);
+
+    // Creating a copy using the copy constructor
+    MedicalDevice copiedDevice(originalDevice);
+
+    // Displaying device information
+    cout << "Original Device: Serial Number = " << originalDevice.getSerialNumber() << ", Name = " << originalDevice.getDeviceName() << ", Manufacturer ID = " << originalDevice.getManufacturerID() << endl;
+    cout << "Copied Device: Serial Number = " << copiedDevice.getSerialNumber() << ", Name = " << copiedDevice.getDeviceName() << ", Manufacturer ID = " << copiedDevice.getManufacturerID() << endl;
+
+    return 0;
+}
+
+//Observe the line in the MedicalDevice class 
+
+ MedicalDevice(const MedicalDevice& other) in the class.
+
+
+ //Observe the line
+    MedicalDevice copiedDevice(originalDevice);
+
+    Here the object that is getting created is copiedDevice. hence construcor call is for this.
+    originalDevice is already created object. so we are trying to make a new object called copiedDevice
+    based on OriginalDevice. It is in this context copy constructor gets called.
+
+Observe inside the  Medical Device there is no dynamic allocation, hence the system given
+copy constructor itself will do the job. There was no need for us to writeour own copy constructor.
+
+Now Observe the below mentioned MedicalDevice class.
+
+class MedicalDevice {
+private:
+    string* serialNumber; // Pointer to dynamically allocated memory
+    string deviceName;
+    int manufacturerID;
+
+public:
+    // Constructor with no arguments
+    MedicalDevice() {
+        serialNumber = new string("Unknown"); // Allocate memory for serial number
+        deviceName = "Unnamed Device";
+        manufacturerID = 0;
+    }
+
+    // Constructor with serial number and name
+    MedicalDevice(const string& serial, const string& name) {
+        serialNumber = new string(serial); // Allocate memory for serial number
+        deviceName = name;
+        manufacturerID = 0;
+    }
+
+    // Constructor with all properties
+    MedicalDevice(const string& serial, const string& name, int manufID) {
+        serialNumber = new string(serial); // Allocate memory for serial number
+        deviceName = name;
+        manufacturerID = manufID;
+    }
+
+    // Copy constructor
+    MedicalDevice(const MedicalDevice& other) {
+        // Deep copy the serial number (allocate new memory)
+        serialNumber = new string(*other.serialNumber);
+        deviceName = other.deviceName;
+        manufacturerID = other.manufacturerID;
+    }
+
+    // Destructor to deallocate memory
+    ~MedicalDevice() {
+        delete serialNumber; // Deallocate memory for serial number
+    }
+
+    // Getter methods
+    string getSerialNumber() const {
+        return *serialNumber; // Dereference the pointer to get the value
+    }
+
+    string getDeviceName() const {
+        return deviceName;
+    }
+
+    int getManufacturerID() const {
+        return manufacturerID;
+    }
+};
+
+Observe there is dynamic allocation and secondly the destructor will get called
+to clean up the memory. Instead of using this we can think of using move concept
+we will talk about it at a later on stage.
+
+
+MedicalDevice originalDevice("SN123", "Blood Pressure Monitor", 789);
+
+    // Creating a copy using the copy constructor
+    MedicalDevice copiedDevice(originalDevice);
+
+Observe we have written a copy constructor in our code.
+In case we did not write the copy constructor.. then what would have happened is
+copiedDevice serialNumberPointer and originaldevice serialnumber pointer would be pointing
+to the same thing.
+
+
+when destructor of originalDevice or copieddevice gets called. then other one will not
+have not anything todeallocate resulting in runtime problems hence we had to write
+our own copy constructor, where we did the following.
+
+1. allocate memory for new object.
+2. copied the value from existing object to the new object.
+
+doing this is called as deep copy.
+
+Dont bother about this, if your class has got non pointer type as varaible in the private section.
+
+
+Overloading anachronism
+An anachronism refers to something that was acceptable or valid in the past but is no longer appropriate or relevant in the current context. In the realm of programming, it often involves outdated practices or features that were once allowed but are now considered obsolete or problematic.
+
+Instead of overloading consider giving decent functionnames.
+we will see more of this at later on point of time including in assingment of variable values...
+
+
+Default arguments..
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class MedicalDevice {
+private:
+    int deviceID;
+    string patientName;
+    string status;
+
+public:
+    // Constructor with default argument for status
+    MedicalDevice(int id, const string& name, const string& s = "Active")
+        : deviceID(id), patientName(name), status(s) {}
+
+    void displayInfo() {
+        cout << "Device ID: " << deviceID << endl;
+        cout << "Patient Name: " << patientName << endl;
+        cout << "Status: " << status << endl;
+    }
+};
+
+int main() {
+    // Creating MedicalDevice objects
+    MedicalDevice device1(101, "John Doe");
+    MedicalDevice device2(102, "Alice Smith", "Inactive");
+
+    // Displaying device information
+    cout << "Device 1 Info:" << endl;
+    device1.displayInfo();
+
+    cout << "\nDevice 2 Info:" << endl;
+    device2.displayInfo();
+
+    return 0;
+}
+
+Default arguments can be used with any function in c++.
+It means you can input argument optional.
+that is if user gives the value it will take that value else will assume the default value given.
+for example in this example.
+
+
+look at the constructor  MedicalDevice(int id, const string& name, const string& s = "Active")
+Observe the word string &s ="Active" that means we are saying while creating MedialDevice object.
+id , name is compulsory, in case third argument is not given, it will assume the value
+to be Active.
+
+one simpler example would be
+double calculateRectangleArea(double length = 1.0, double width = 1.0) {
+    return length * width;
+}
+
+double defaultArea = calculateRectangleArea(); //now default argument is at work
+double customArea = calculateRectangleArea(5.0, 3.0);// whatever arguments we supply will be considered.
+
+If we use default arguments and overloading both there could be amgiuity
+
+Ambiguity in overloading and default arguments
+
+#include <iostream>
+using namespace std;
+
+void printValue(int x = 10) {
+    cout << "Value: " << x << endl;
+}
+
+void printValue(double y) {
+    cout << "Value: " << y << endl;
+}
+
+int main() {
+    printValue(); // Which function to call?
+    return 0;
+}
+
+Observe we have default value for x =10
+and provided printValue with double argument as input.
+which function should get called becomes ambiguous.
+so avoid this... 
+
+Any where compiler is giving an error it should be solvable by reading the error usually.
+
+Getting overloaded functions address if need be
+#include <iostream>
+using namespace std;
+
+void foo(int x) {
+    cout << "foo(int): " << x << endl;
+}
+
+void foo(double y) {
+    cout << "foo(double): " << y << endl;
+}
+
+int main() {
+    // Taking the address of the 'foo' overload
+    void (*pFooInt)(int) = &foo;
+    void (*pFooDouble)(double) = &foo;
+
+    // Calling the functions via function pointers
+    pFooInt(42);
+    pFooDouble(3.14);
+
+    return 0;
+}
+
+We declare two function pointers (pFooInt and pFooDouble) with matching function signatures.
+We assign the addresses of the respective overloads of foo to these function pointers.
+The function pointers allow us to call the specific overloads.
+
+some important points on concept of Class.
+
+assinging objects.
+if you are assinging objects to classes, please judge how you want to do it.
+
+
+1. pass by value
+2. pass by reference
+3. pass by pointer.
+
+Example you got a class called X with the object called y.
+X y;
+f1(y); // now you must see the signature of the fucntion f1. ie see what is function input argument
+what does it expect a reference or an object, only then you will be able to judge whether
+input you are passing is by value or by reference.
+
+
+pass by pointer.
+X y;
+f1(&y);
+
+Here you dont need to have any doubt that input argument for f1 is a pointer of type X.
+then you have to stick to pointer basics discussed previously ie.
+
+1. know what your pointer points to.
+2. decide whether you want to operate on the pointer or what the pointer points to.
+
+Example if you have MedicalDevice class.
+
+void processByReference(MedicalDevice& device) {
+    // Modify 'device' directly
+    device.setStatus("In Use");
+}
+
+int main() {
+    MedicalDevice myDevice(123, "Patient X");
+    processByReference(myDevice);
+    // 'myDevice' now has the updated status
+    return 0;
+}
+
+
+//pass by pointer
+void processByPointer(MedicalDevice* ptrDevice) {
+    if (ptrDevice) {
+        // Modify the object pointed to by 'ptrDevice'
+        ptrDevice->setStatus("Maintenance");
+    }
+}
+
+int main() {
+    MedicalDevice* ptrMyDevice = new MedicalDevice(456, "Patient Y");
+    processByPointer(ptrMyDevice);
+    // 'ptrMyDevice' still points to the same object
+    delete ptrMyDevice; // Clean up memory
+    return 0;
+}
+
+void processByValue(MedicalDevice device) {
+    // Modify the local copy 'device'
+    device.setStatus("Idle");
+}
+
+int main() {
+    MedicalDevice anotherDevice(789, "Patient Z");
+    processByValue(anotherDevice);
+    // 'anotherDevice' remains unchanged
+    return 0;
+}
+
+while returning objects if by reference or by address ensure you are not
+returning the object which is dead. check the scope of the variable
+and check the 
+
+MedicalDevice getDeviceByValue() {
+    return MedicalDevice(789, "Patient C", "Idle");
+}
+
+int main() {
+    MedicalDevice anotherDevice = getDeviceByValue();
+    // 'anotherDevice' is a copy of the returned object
+    return 0;
+}
+
+
+
+MedicalDevice* getDeviceByPointer() {
+    return new MedicalDevice(456, "Patient B", "Inactive");
+}
+
+int main() {
+    MedicalDevice* ptrDevice = getDeviceByPointer();
+    ptrDevice->setStatus("Maintenance");
+    // 'ptrDevice' points to a dynamically allocated object
+    delete ptrDevice; // Clean up memory
+    return 0;
+}
+
+
+
+MedicalDevice& getDeviceByReference() {
+    static MedicalDevice device(123, "Patient A", "Active");
+    return device;
+}
+
+int main() {
+    MedicalDevice& refDevice = getDeviceByReference();
+    refDevice.setStatus("In Use");
+    // 'refDevice' modifies the original device
+    return 0;
+}
+Look at functions returning references and pointers and think why they are returning
+the way they are..
+
+Friend functions.
+
+1. we need to have a class.
+2. the class needs to tell who will be it friend.
+3. the friend function will be present ouside the class, it wont have access to this.
+4. but it can access all the sections of the class, including private part.
+
+Let us look at an example
+#include <iostream>
+#include <string>
+
+class MedicalDevice {
+private:
+    int deviceID;
+    std::string patientName;
+    std::string deviceStatus;
+
+public:
+    MedicalDevice(int id, const std::string& name, const std::string& status)
+        : deviceID(id), patientName(name), deviceStatus(status) {}
+
+    // Declare the friend function
+    friend void compareDevices(const MedicalDevice& device1, const MedicalDevice& device2);
+
+    void displayInfo() const {
+        std::cout << "Device ID: " << deviceID << std::endl;
+        std::cout << "Patient Name: " << patientName << std::endl;
+        std::cout << "Status: " << deviceStatus << std::endl;
+    }
+};
+
+// Friend function definition
+void compareDevices(const MedicalDevice& device1, const MedicalDevice& device2) {
+    if (device1.deviceID == device2.deviceID) {
+        std::cout << "Devices have the same ID." << std::endl;
+    } else {
+        std::cout << "Devices have different IDs." << std::endl;
+    }
+}
+
+int main() {
+    MedicalDevice device1(101, "John Doe", "Active");
+    MedicalDevice device2(102, "Alice Smith", "Inactive");
+
+    device1.displayInfo();
+    device2.displayInfo();
+
+    // Compare devices using the friend function
+    compareDevices(device1, device2);
+
+    return 0;
+}
+
+In this observe.. first the class MedicalDevice.
+Observe compareDevices function.
+see the word friend being used.
+
+Observe the fucntion defintiion it is outside teh class.
+and see it is able to access the private sections of the class also.
+This is purpose of a freind function.
+
+We can have a friend class also... but more can be explored if need be...
+
+
+static members of the class.
+
+1. a static variable present in the class is somethign which is independent of all objects and exists without
+the object. 
+2. static function inside a class can be invoked without an object by using
+Classname::functionname.  
+3. static functions will not have access to this, becuase remember this means referring to
+the calling object and static functions dont need an object to access them.
+4. static functions cannot call the non static functions part of the class directly... ie by using
+functionname.
+
+
+#include <iostream>
+#include <string>
+
+class MedicalDevice {
+private:
+    int deviceID;
+    std::string patientName;
+    std::string deviceStatus;
+
+public:
+    // Static variable for category ID
+    static int CategoryId;
+
+    // Constructor
+    MedicalDevice(int id, const std::string& name, const std::string& status)
+        : deviceID(id), patientName(name), deviceStatus(status) {}
+
+    // Setter for device status
+    void setStatus(const std::string& newStatus) {
+        deviceStatus = newStatus;
+    }
+
+    // Getter for category ID
+    static int getCategoryId() {
+        return CategoryId;
+    }
+
+    // Display device information
+    void displayInfo() const {
+        std::cout << "Device ID: " << deviceID << std::endl;
+        std::cout << "Patient Name: " << patientName << std::endl;
+        std::cout << "Status: " << deviceStatus << std::endl;
+    }
+};
+
+// Initialize the static variable
+int MedicalDevice::CategoryId = 100; // Example value
+
+int main() {
+    MedicalDevice myDevice(123, "Patient X", "Active");
+    myDevice.displayInfo();
+
+    // Get and display the category ID
+    std::cout << "Category ID: " << MedicalDevice::getCategoryId() << std::endl;
+
+    return 0;
+}
+
+
+Observe the above code.. first thing is categoryId is static variable..
+inside the class, observe it has be created explicitly outisde the class.
+observe the static functions and observe that we are accessing it
+without creating an object.
+
+MedicalDevice::getCategoryId(), getCategoryId is a static function hence
+no need for an object you can access it by using Classname::functionname.
+
+
+Const functions
+
+Const functions inside a class indicate those functions cannot change
+the non static member variables of the class.  for example observe
+
+
+#include <iostream>
+#include <string>
+
+class MedicalDevice {
+private:
+    int deviceID;
+    std::string patientName;
+    std::string deviceStatus;
+
+public:
+    MedicalDevice(int id, const std::string& name, const std::string& status)
+        : deviceID(id), patientName(name), deviceStatus(status) {}
+
+    // Getter for device ID (const member function)
+    int getDeviceID() const {
+        return deviceID;
+    }
+
+    // Getter for patient name (const member function)
+    const std::string& getPatientName() const {
+        return patientName;
+    }
+
+    // Getter for device status (const member function)
+    const std::string& getStatus() const {
+        return deviceStatus;
+    }
+
+    // Setter for device status
+    void setStatus(const std::string& newStatus) {
+        deviceStatus = newStatus;
+    }
+
+    // Display device information (const member function)
+    void displayInfo() const {
+        std::cout << "Device ID: " << deviceID << std::endl;
+        std::cout << "Patient Name: " << patientName << std::endl;
+        std::cout << "Status: " << deviceStatus << std::endl;
+    }
+};
+
+int main() {
+    const MedicalDevice myDevice(123, "Patient X", "Active");
+
+    // Accessing data using const member functions
+    std::cout << "Device ID: " << myDevice.getDeviceID() << std::endl;
+    std::cout << "Patient Name: " << myDevice.getPatientName() << std::endl;
+    std::cout << "Status: " << myDevice.getStatus() << std::endl;
+
+    // Uncomment the following line to see compilation error (const object)
+    // myDevice.setStatus("In Use");
+
+    return 0;
+}
+
+first step look inside the class.
+
+void displayInfo() const 
+ const std::string& getPatientName() const
+ these functions are made as const, it means they cannot the members
+ of the class like deviceId, paitentname and status.
+
+ if you want to change any of those variables inside the const function then you have
+ to make member of the class as mutable... example
+ mutable int deviceId, then they can change it.
+
+ Observe the below example
+ #include <iostream>
+#include <string>
+
+class MedicalDevice {
+private:
+    int deviceID;
+    std::string patientName;
+    mutable int HealthRequests; // Mutable counter
+
+public:
+    MedicalDevice(int id, const std::string& name)
+        : deviceID(id), patientName(name), HealthRequests(0) {}
+
+    // Getter for device ID (const member function)
+    int getDeviceID() const {
+        return deviceID;
+    }
+
+    // Getter for patient name (const member function)
+    const std::string& getPatientName() const {
+        return patientName;
+    }
+
+    // Getter for HealthRequests (const member function)
+    int getHealthRequests() const {
+        return HealthRequests;
+    }
+
+    // Display device information (const member function)
+    void displayInfo() const {
+        std::cout << "Device ID: " << deviceID << std::endl;
+        std::cout << "Patient Name: " << patientName << std::endl;
+        std::cout << "Health Requests: " << HealthRequests << std::endl;
+    }
+
+    // Increment HealthRequests (non-const member function)
+    void incrementHealthRequests() {
+        ++HealthRequests;
+    }
+};
+
+int main() {
+    const MedicalDevice myDevice(123, "Patient X");
+
+    // Accessing data using const member functions
+    std::cout << "Device ID: " << myDevice.getDeviceID() << std::endl;
+    std::cout << "Patient Name: " << myDevice.getPatientName() << std::endl;
+
+    // Accessing and modifying the mutable counter
+    std::cout << "Initial Health Requests: " << myDevice.getHealthRequests() << std::endl;
+    myDevice.incrementHealthRequests();
+    std::cout << "Updated Health Requests: " << myDevice.getHealthRequests() << std::endl;
+
+    return 0;
+}
+HealthRequests is a mutable variable, it can be changed inside the const function
+if need be..
+
+Final look at constructors
+
+1. think of a person called X who has written the clss called MedicalDevice.
+2. think of the person called y who is using the class called MedicalDevice.
+
+what does using the class mean.
+
+1. creating the object and calling non static functions of the class.
+2. calling the static function of the class without creating an object.
+
+if we are creating an object of the class, first thing we need to see is
+what constructors are provided by the owner of the class and pick one from that.
+without that we will not be able to create the object..
+
+for example in the below code
+class MedicalDevice {
+private:
+    string serialNumber;
+    string deviceName;
+    int manufacturerID;
+
+public:
+    // Constructor with no arguments
+    MedicalDevice() {
+        serialNumber = "Unknown";
+        deviceName = "Unnamed Device";
+        manufacturerID = 0;
+    }
+
+    // Constructor with serial number and name
+    MedicalDevice(const string& serial, const string& name) {
+        serialNumber = serial;
+        deviceName = name;
+        manufacturerID = 0;
+    }
+
+    // Constructor with all properties
+    MedicalDevice(const string& serial, const string& name, int manufID) {
+        serialNumber = serial;
+        deviceName = name;
+        manufacturerID = manufID;
+    }
+
+in the above code we see three constructors, so we have to create the object by
+using one of the three constructors only.
+
+Some times the class can have private constructors..where byowner of the class is telling
+us hey look you cannot create the object. then you may have to check
+whether any static function exists that will return you the object of the class.
+
+Look at design patterns like Singleton or Factory and analyze the code if need be..
+
+OPERATOR OVERLOADING AND CONVERSION FUNCTIONS 
+
+Operator overloading is a mechanism thru which we can teach the system how to use an existing
+operator with a user defined data type 
+
+Key things are .
+
+1. you must have a a class which is acting like a data type.
+2. you are talking an existing operator. some operators cannot be overloaded example ?: 
+3. you write a function whose name starts with operator, 
+4. remmber you cannot change change the number of operands an operator takes nor its precedence.
+
+example
+#include <iostream>
+#include <string>
+
+class MedicalDevice {
+private:
+    int deviceID;
+    std::string patientName;
+    std::string deviceStatus;
+
+public:
+    MedicalDevice(int id, const std::string& name, const std::string& status)
+        : deviceID(id), patientName(name), deviceStatus(status) {}
+
+    // Overload the > operator
+    bool operator>(const MedicalDevice& other) const {
+        return deviceID > other.deviceID;
+    }
+
+    // Display device information
+    void displayInfo() const {
+        std::cout << "Device ID: " << deviceID << std::endl;
+        std::cout << "Patient Name: " << patientName << std::endl;
+        std::cout << "Status: " << deviceStatus << std::endl;
+    }
+};
+
+int main() {
+    MedicalDevice device1(101, "John Doe", "Active");
+    MedicalDevice device2(102, "Alice Smith", "Inactive");
+
+    device1.displayInfo();
+    device2.displayInfo();
+
+    // Compare devices using the > operator
+    if (device1 > device2) {
+        std::cout << "Device 1 has a greater ID." << std::endl;
+    } else {
+        std::cout << "Device 2 has a greater ID." << std::endl;
+    }
+
+    return 0;
+}
+
+
+In this code, observe
+we have used the line 
+
+if (device1 > device2) {
+device1 and device 2 are objects of the class MedicalDevice, compiler
+will not know how to deal with them until we teach it. how do we teach it
+observe the function in the class MedialDevice
+
+bool operator>(const MedicalDevice& other) const {
+        return deviceID > other.deviceID;
+    }
+the compiler will now call this function, when we are using
+device1 > device 2. now try by using the < symbol , ie
+device1 < device 2 and see whether it works, think why... what should
+you do to make it work.. think about it.
+
+Most of the operators you can write it to write it as member function or a friend function
+but certain opertors 
+
+unary operators, assignment (=), subscript ([]), function call (()), and member selection (->) should be overloaded as member functions. This is becuase c++ design tells only owner of the class
+should decide what is meaning of operators. becuase it changes the operand on the left hand side.
+example
+
+example consider the below example
+#include <iostream>
+#include <string>
+
+class MedicalDevice {
+private:
+    int deviceID;
+    std::string patientName;
+    std::string deviceStatus;
+
+public:
+    MedicalDevice(int id, const std::string& name, const std::string& status)
+        : deviceID(id), patientName(name), deviceStatus(status) {}
+
+    // Overload the assignment operator
+    MedicalDevice& operator=(const MedicalDevice& other) {
+        if (this != &other) {
+            deviceID = other.deviceID;
+            patientName = other.patientName;
+            deviceStatus = other.deviceStatus;
+        }
+        return *this;
+    }
+
+    // Display device information
+    void displayInfo() const {
+        std::cout << "Device ID: " << deviceID << std::endl;
+        std::cout << "Patient Name: " << patientName << std::endl;
+        std::cout << "Status: " << deviceStatus << std::endl;
+    }
+};
+
+int main() {
+    MedicalDevice device1(101, "John Doe", "Active");
+    MedicalDevice device2(102, "Alice Smith", "Inactive");
+
+    device1.displayInfo();
+    device2.displayInfo();
+
+    // Assign device2 to device1 using the overloaded assignment operator
+    device1 = device2;
+
+    std::cout << "\nAfter assignment:" << std::endl;
+    device1.displayInfo();
+
+    return 0;
+}
+
+
+MedicalDevice& operator=(const MedicalDevice& other)
+as usual this operator is a member function you cannot write it as global function
+becuase = operator has to be overloaded only as a member function.
+guess the line which calls the function in main. If you cant guess
+read the comments.
+
+During operator overloading consider using friend functions if you first argument
+turns out to be some type which you dont own and second argument is your object.
+example
+
+we have a MedicalDevice object. we have an integer and we want to write it as
+
+if ( i > object), observe here i is a int type and object is of type MedicalDevice.
+so you cant write a member function use a friend function 
+
+during overloading of subscript operator, remember it needs to a member function
+only... and it should make logical sense.. 
+
+#include <iostream>
+#include <string>
+
+class MedicalDevice {
+private:
+    int deviceID;
+    std::string patientName;
+    std::string deviceStatus;
+
+public:
+    MedicalDevice(int id, const std::string& name, const std::string& status)
+        : deviceID(id), patientName(name), deviceStatus(status) {}
+
+    // Overload the [] operator
+    
+    const std::string& operator[](int index) const {
+        if (index == 0) {
+            return deviceStatus;
+        } else {
+            static const std::string invalidStatus = "Invalid";
+            return invalidStatus;
+        }
+    }
+    // Display device information
+    void displayInfo() const {
+        std::cout << "Device ID: " << deviceID << std::endl;
+        std::cout << "Patient Name: " << patientName << std::endl;
+        std::cout << "Status: " << deviceStatus << std::endl;
+    }
+};
+
+int main() {
+    MedicalDevice myDevice(123, "Patient X", "Active");
+
+    // Access device status using the [] operator
+    std::cout << "Device Status (Active): " << myDevice[0] << std::endl;
+    std::cout << "Device Status (Invalid): " << myDevice[1] << std::endl;
+
+    return 0;
+}
+
+
+Conversion function is one where one object type gets converted into another.
+
+Example 
+
+MedicalDevice d;
+d =12  //now overloaded assingment operator in MedicalDevice should solve this.
+
+
+but if you tell
+
+int i =3;
+i =d;// now we cannot write a friend function for = becuase = has to be member
+function hence we need to overload the cast operator in our class and this
+will act like a conversion function.
+
+if the class has got a single argument constructor whose input is int type
+it will also act like a conversion function to prevent it we need to 
+use explicit keyword with the cconstructor.
+
+Observe the below code
+class MedicalDevice {
+private:
+    int deviceID;
+    std::string patientName;
+    std::string deviceStatus;
+
+public:
+    MedicalDevice(int id, const std::string& name, const std::string& status)
+        : deviceID(id), patientName(name), deviceStatus(status) {}
+
+    // Conversion function: Convert MedicalDevice to int (device ID)
+    operator int() const {
+        return deviceID;
+    }
+
+    // Display device information
+    void displayInfo() const {
+        std::cout << "Device ID: " << deviceID << std::endl;
+        std::cout << "Patient Name: " << patientName << std::endl;
+        std::cout << "Status: " << deviceStatus << std::endl;
+    }
+};
+
+int main() {
+    MedicalDevice myDevice(123, "Patient X", "Active");
+
+    // Convert MedicalDevice object to an integer (device ID)
+    int deviceIDAsInt = myDevice;
+
+    std::cout << "Device ID as int: " << deviceIDAsInt << std::endl;
+
+    return 0;
+}
+
+the line to observe is
+int deviceIDAsInt = myDevice;
+now myDevice object has to get converted into int, for doing this we must have a constructor
+in the class which takes int or look for a conversion function. which you see in the code as 
+
+operator int() const {
+        return deviceID;
+}
+
+Observe the name of the function is a primitive type like int()...
+
+
+
+
+Creating c++ in multiple files... which is what real life is all about
+
+we will have a header file which will contain.
+
+// MedicalDevice.h
+#ifndef MEDICALDEVICE_H
+#define MEDICALDEVICE_H
+
+#include <string>
+
+class MedicalDevice {
+private:
+    int deviceID;
+    std::string patientName;
+    std::string deviceStatus;
+
+public:
+    MedicalDevice(int id, const std::string& name, const std::string& status);
+
+    int getDeviceID() const;
+    void setStatus(const std::string& newStatus);
+    void displayInfo() const;
+};
+
+#endif // MEDICALDEVICE_H
+
+
+step2 we will have implementation file for the class, which will not visible to the user
+typically.
+
+// MedicalDevice.cpp, expect the implementation to become a static or dynamic library..
+#include "MedicalDevice.h"
+#include <iostream>
+
+MedicalDevice::MedicalDevice(int id, const std::string& name, const std::string& status)
+    : deviceID(id), patientName(name), deviceStatus(status) {}
+
+int MedicalDevice::getDeviceID() const {
+    return deviceID;
+}
+
+void MedicalDevice::setStatus(const std::string& newStatus) {
+    deviceStatus = newStatus;
+}
+
+void MedicalDevice::displayInfo() const {
+    std::cout << "Device ID: " << deviceID << std::endl;
+    std::cout << "Patient Name: " << patientName << std::endl;
+    std::cout << "Status: " << deviceStatus << std::endl;
+}
+
+and finally the main function file which will use these things.
+
+
+// main.cpp
+#include "MedicalDevice.h"
+
+int main() {
+    MedicalDevice myDevice(123, "Patient X", "Active");
+
+    myDevice.displayInfo();
+
+    // Modify the status
+    myDevice.setStatus("In Use");
+    myDevice.displayInfo();
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Inheritance examples.
+
+Inheritance is a mechanism where we create hierarchies.
+we create a hiearchies to generalize our understanding and also do runtime polymorphism.
+
+A class which is preent above in the hiearchy is called as Base  class.
+A class which is present below in the hierarchy is called as dervied class.
+
+typically during inheritance we create derived class objects and not base class objects.
+
+The derived class object can access functions of the base class and derived class also
+most of times.
+
+First thing to do is to
+write a derive class "is a " base class and read whther it sounds logical.
+
+
+what we want to prove.
+1. create a derived class object.
+2. prove it can access functions of the base class. + functions of the derived class.
+if you do 1 and 2, then we say "hello world inheritance is working"
+
+Observe the code, this is the base class
+class Window
+{
+    public:
+        void setWindowId(int);
+        int getWindowId();
+        void setIconType(int);
+        virtual void copy();
+        
+    
+    private:
+        int windowId;
+        int iconType;
+};
+//Observe in thebase class some funtions are made as virtual and some functions are not made
+//as virtual we will see why...
+
+
+void Window::copy()
+{
+    std::cout<<"windows copy function";
+    
+}
+
+void Window::setIconType(int it){
+    
+    std::cout << "setIcon getting called";
+    iconType =it;
+}
+
+void Window::setWindowId(int x)
+{
+    windowId=x;
+}
+
+int Window::getWindowId(){
+    
+    return windowId;
+}
+
+The above are implementations of the Window class functions...
+
+class PaintWindow :public Window
+{
+    public:
+    
+     void setGraphicsView(int);
+     int getGraphicsView();
+     void copy();
+        
+    
+    private:
+        int graphicsMode;
+    
+};
+
+
+void PaintWindow::copy()
+{
+    std::cout <<"this is copy of paint, graphics copy";
+}
+
+
+void PaintWindow::setGraphicsView(int x){
+    graphicsMode =x;
+    
+    
+}
+int  PaintWindow::getGraphicsView() { 
+    return graphicsMode;
+}
+     
+
+class CalcWindow:public Window
+{
+    public:
+        void setTypeofCalculator(int x);
+        int getTypeOfCalculator();
+        void copy();
+    
+    private:
+        int typeOfCalculator;
+    
+};
+
+void CalcWindow::copy()
+{
+    
+    std::cout<< "copy the result area calculator";
+}
+
+
+void CalcWindow::setTypeofCalculator(int x){ typeOfCalculator =x; }
+        int CalcWindow::getTypeOfCalculator(){ return typeOfCalculator; }
+
+
+Observe the above code, you will see lines like 
+
+class CalcWindow:public Window
+class PaintWindow :public Window
+ it means CalcWindow is a derived class of Window
+so obviously PaintWindow is also a derived class of Window.
+
+First test of inheritance is see the below code
+
+int main()
+{
+    CalcWindow calcWindow;
+    calcWindow.setWindowId(23);
+    calcWindow.setTypeofCalculator(1);
+    calcWindow.setIconType(4);
+
+    return 0;
+}
+we have created an object of calcWindow
+we have called the function setWindowId, which is window class function ie base class function
+we have called the setTypeOfCalculator which is of type CalcWindow function.
+so using a derived class object we have called the functions of base class and derived class.
+
+int main()
+{
+    PaintWindow paintWindow;
+    paintWindow.setIconType(1);
+    paintWindow.setGraphicsView(2);
+    paintWindow.copy();
+}
+
+similarly see what does the above code means..
+
+The advantage of inheritance is we can add a new function in the base class and not
+make any changes in the derived class and new feature added in the base class
+is available to all the subclass objects.
+
+Runtime Polymorphism.
+
+In object orientedness we can get runtime polymorphism by using inheritance or interfaces.
+we will talk about what is an interface later on...
+
+Runtime polymorphism means behaviour depending on context.
+Example in windows, if you do copy what is meaning of copy can change
+when you talk copy in notepad, copy in a calculator and copy in file explorer.
+example copy in notepd, means copying some text.
+copy in calculator means copying result area.
+copy in file explorer, means copying a file.
+so if somebody tells what will happen if you do copy.. it depends on where they
+have done copy, this is an example of runtime polymorphism.
+
+
+
+1. There is a hierarchy,in our case Window,PaintWindow, CalcWindow
+there is a function of the base class   
+
+2. now PaintWindow object or CalcObject does not prefer the method
+copy given by Window.owner of the Window class knows this.. so he has 
+decided to allow the derived class to interpret copy in its own way
+how .. by making the function in window class as virtual.
+
+important point is that base class owner has to decide
+which function of the base class will be made as virtual
+it implies that the dervied class can give its own interpretation.
+
+3. now the derived class will override the function. by writing
+a function whose signature matches the same as the base class and body
+of the function will change.
+
+4. now the derived class object ie PaintWindow object will now
+be able to access only the copy of PaintWindow and not that of Window object.
+atleast that is what we should do, beccause that is purpose of overriding.
+
+5. once you have inheritance we are able to doo 
+
+base class pointer = any object of the hierarchy.
+example
+
+Science *c =new Phyiscs or new Chemistry.... 
+in this case..
+
+Window *w =new PaintWindow or new CalcWindow.
+now if we call a virtual function
+w->copy.. which copy gets called depends on type of object we have. ie PaintWindow or CalcWindow.
+this is called as runtime polymorphism.
+
+ Window *w=new PaintWindow;
+ w->setIconType(1);
+ w->copy();// this is runtime polymorphism.
+
+so what does it mean.
+if we have a base class pointer and if some object of the derived class gets assigned
+if we call a virtual function, which function gets called gets determined at runtime.
+hence this is called as runtime polymorphism.
+
+ Window *w=new ?;
+ w->setIconType(1);
+ w->copy();// this is runtime polymorphism.
+
+until you know ? , you cannot tell which copy gets called. becuse copy is virtual in Window class.
+
+Need for RTTI and dynamic Cast.
+
+we have runtime polymorphism.
+so we have a base class pointer 
+
+
+thru base class pointer we cannot access exclusive functions of derived class.
+we have base class pointer beccuase we wanted runtime polymorphism.
+I want to access exclusive functions of the derived class.
+
+typecast the base class pointer to derived class pointer. but before doing
+it check what type of object the base class pointer is pointing to.
+
+
+
+
+
+    Window *w=?;  //start point of runtime polymorphism
+    w->setIconType(1);
+    w->copy();// this is runtime polymorphism.
+    
+    CalcWindow *cw = dynamic_cast<CalcWindow*>(w);// we are checking whether w is pointing to an CalcWindow object
+    if( cw != nullptr)
+        cw->setTypeofCalculator(44);
+    else
+        std::cout <<" did not have a calculator object";
+    
+
+In the above code observe the following
+1. we have a runtime polymorphism.
+2. that means we dont know which object is the base class pointer pointing to.
+3. we have runtime polymorphism. copy method.
+4. now we cant to call exclusive fucntion of the derived class
+5. we need to typecast base class pointer to derived class pointer.
+6. first we need to check whether our base class pointers points to the correct object, in this case calculator object.
+7. to do this we need a dynamic_cast. observe the syntax.
+
+    CalcWindow *cw = dynamic_cast<CalcWindow*>(w);// we are checking whether w is pointing to an CalcWindow object
+    if( cw != nullptr)
+        cw->setTypeofCalculator(44);
+    else
+        std::cout <<" did not have a calculator object";
+
+    observe dynamic cast will return null, incase the base class ptr is not pointing to the
+    Calcwindow object. once your typecast is successful you can call the exclusive functionof the derived
+    class.
+
+    pure virtual functions.
+    we have seen virtual functions, if a vritual function is written with =0 it is called  as pure virtual
+    function it indicates that the function must be overridden in the derived class.
+
+    This is used to model interfaces and abstract class in c++
+
+    Abstract class is a base class which has a pure virtual function in it.
+    becuase of it, we cannot create an object of this class.
+    we will have consructors, non static functions which all will be used during
+    derived class object creation.
+
+    Remember
+    non virtual functions not worth overriding.
+    virtual functions may be overridden
+    pure virtual function must be overridden.
+
+
+#include <iostream>
+#include <string>
+
+class MedicalDevice {
+public:
+    // Constructor
+    MedicalDevice(const std::string& serialno, const std::string& manufacturerid, const std::string& name)
+        : serialno_(serialno), manufacturerid_(manufacturerid), name_(name) {}
+
+    // Pure virtual function for displaying device information
+    virtual void displayInfo() const = 0;
+
+protected:
+    std::string serialno_;
+    std::string manufacturerid_;
+    std::string name_;
+};
+
+class BloodPressureMonitor : public MedicalDevice {
+public:
+    BloodPressureMonitor(const std::string& serialno, const std::string& manufacturerid, const std::string& name)
+        : MedicalDevice(serialno, manufacturerid, name) {}
+
+    // Implement the pure virtual function
+    void displayInfo() const override {
+        std::cout << "Blood Pressure Monitor Info:" << std::endl;
+        std::cout << "Serial Number: " << serialno_ << std::endl;
+        std::cout << "Manufacturer ID: " << manufacturerid_ << std::endl;
+        std::cout << "Device Name: " << name_ << std::endl;
+    }
+};
+
+int main() {
+    // Example usage
+    BloodPressureMonitor bpm("BP12345", "ABC Medical", "BP Pro");
+    bpm.displayInfo();
+
+    return 0;
+}
+
+Observe, the MedicalDevice class.
+
+1. note it has a derived class, that means it is a base class.
+2. note the function, virtual void displayInfo() const = 0 in MedicalDEvice class;
+3. come to the derived class you will see the function being overridden.
+
+
+Look at the below example
+class IDeviceIntegration {
+     public:
+         virtual void connect() = 0;
+         virtual void fetchData() = 0;
+     };
+
+Here you see a class, but dont see any variables or functions with definition
+in the class, such a thing in OO is called as interface It will act
+like a contract to enforce something on a class, example.
+
+class HeartRateMonitor : public IDeviceIntegration {
+     public:
+         void connect() override {
+             // Implementation for connecting to heart rate monitor
+         }
+         void fetchData() override {
+             // Implementation for fetching heart rate data
+         }
+     };
+
+class HeartRateMonitor : public IDeviceIntegration , This line should
+be read as HeartRateMonitor is a realizaation of the interface IdeviceIntegration.
+
+
+-------------------------------------------
+Protected scope 
+
+1. means a resource in the class is accessible in the class where it is
+defined and its derived classes but not by objects of the classes.
+
+
+#include <iostream>
+#include <string>
+
+class MedicalDevice {
+public:
+    // Constructor
+    MedicalDevice(const std::string& serialno, const std::string& manufacturerid, const std::string& name)
+        : serialno_(serialno), manufacturerid_(manufacturerid), name_(name) {}
+
+    // Pure virtual function for displaying device information
+    virtual void displayInfo() const = 0;
+
+protected:
+    std::string serialno_;        // Protected property
+    std::string manufacturerid_;  // Protected property
+    std::string name_;            // Protected property
+};
+
+
+class BloodPressureMonitor : public MedicalDevice {
+public:
+    BloodPressureMonitor(const std::string& serialno, const std::string& manufacturerid, const std::string& name)
+        : MedicalDevice(serialno, manufacturerid, name) {}
+
+    // Implement the pure virtual function
+    void displayInfo() const override {
+        std::cout << "Blood Pressure Monitor Info:" << std::endl;
+        std::cout << "Serial Number: " << serialno_ << std::endl;  // Accessing protected property
+        std::cout << "Manufacturer ID: " << manufacturerid_ << std::endl;  // Accessing protected property
+        std::cout << "Device Name: " << name_ << std::endl;  // Accessing protected property
+    }
+};
+
+The serialno_, manufacturerid_, and name_ properties are declared within the protected section.
+These properties can be accessed by any derived class (such as BloodPressureMonitor) but are not directly accessible outside the class hierarchy.
+For example, in the BloodPressureMonitor class, we can access these protected properties to display information specific to a blood pressure monitor
+
+Hence know the protected scope.
+
+
+Constructor behaviour duirng inheritance.
+
+when we create a base class  object constructor of base class is called
+and then the derived class constructor is called, but if we have
+parametrized base class constructors then those dont get called automatically
+we should call explicitly in the dervied class constructor
+
+#include <iostream>
+using namespace std;
+
+// Base class (Parent)
+class Parent {
+protected:
+    int a;
+
+public:
+    Parent(int x) : a(x) {
+        cout << "Parent constructor called" << endl;
+    }
+
+    void displayX() {
+        cout << "Value of a: " << a << endl;
+    }
+};
+
+// Derived class (Child)
+class Child : public Parent {
+private:
+    int b;
+
+public:
+    Child(int x, int y) : Parent(x), b(y) {
+        cout << "Child constructor called" << endl;
+    }
+
+    void displayY() {
+        cout << "Value of b: " << b << endl;
+    }
+};
+
+int main() {
+    Child c1(20, 10); // Creating a Child object
+    c1.displayX();    // Display value of a
+    c1.displayY();    // Display value of b
+    return 0;
+
+}
+
+Observe the code here when we create Child c1(20,10) 
+
+1. we are creating the derived class object.
+2. we are passing two arguments to it.
+3. Child(int x, int y) : Parent(x), b(y)
+since we want to call the parametrized consructor of the base class. hence we need
+to call it explicitly by using Parent(x).
+
+
+Need for virtual destructor.
+
+during runtime polymorphism we point 
+
+base class ptr =new DerivedClass Object.
+durin this case, when we tell delete baseclassptr to deallocate memory
+constructor destructor of base class will get called.
+we want derived class destructor also should get called hence
+if we make the destructor of base class virtual, then we are guranteed
+that the derived class destructor will get called and only then
+the base class destructor will get called.
+
+Look at the code sample below
+#include <iostream>
+
+class Base {
+public:
+    Base() {
+        std::cout << "Constructing base\n";
+    }
+
+    // Virtual destructor
+    virtual ~Base() {
+        std::cout << "Destructing base\n";
+    }
+};
+
+class Derived : public Base {
+public:
+    Derived() {
+        std::cout << "Constructing derived\n";
+    }
+
+    ~Derived() {
+        std::cout << "Destructing derived\n";
+    }
+};
+
+int main() {
+    Derived* d = new Derived();
+    Base* b = d;
+    delete b; // Properly destructs both base and derived objects
+    return 0;
+}
+
+//If base class destructor was not virtual , derived class destructor will not
+get called.
+
+
+------------------------------------
+
+Need for virtual BAse class.
+
+During multiple inheritance ie  a derived class having two immediate base classes.
+if the two immediate base classes are inheriting from a common base class.
+look at the code below.
+
+
+#include <iostream>
+
+class A {
+public:
+    void show() {
+        std::cout << "Hello from A\n";
+    }
+};
+
+class B : virtual public A {
+};
+
+class C : virtual public A {
+};
+
+class D : public B, public C {
+};
+
+int main() {
+    D object;
+    object.show(); // Calls A::show() without ambiguity
+    return 0;
+}
+
+D class is inherting from B and C
+B and C have a common base class called A.
+now how does D class approach A. to avoid this , we need to inherit A class
+in B and C virtually.
+
+
+----------------------------------------------------------
+
+Different kind of casts in c++
+
+
+#include <iostream>
+#include <string>
+
+class Patient {
+public:
+    Patient(const std::string& name, int age)
+        : name_(name), age_(age) {}
+
+    // Getter for name
+    const std::string& getName() const {
+        return name_;
+    }
+
+    // Getter for age
+    int getAge() const {
+        return age_;
+    }
+
+    // Setter for age (non-const version)
+    void setAge(int newAge) {
+        age_ = newAge;
+    }
+
+private:
+    std::string name_;
+    int age_;
+};
+
+int main() {
+    // Create a const Patient object
+    const Patient constPatient("Alice", 30);
+
+    // Using const_cast to modify a const object
+    Patient* nonConstPatient = const_cast<Patient*>(&constPatient);
+    nonConstPatient->setAge(31);  // Modifying the age
+
+    // Using reinterpret_cast to reinterpret the address
+    int* agePointer = reinterpret_cast<int*>(&constPatient);
+    std::cout << "Reinterpreted age: " << *agePointer << std::endl;
+
+    // Using static_cast to convert between related types
+    Patient* anotherPatient = new Patient("Bob", 25);
+    const Patient* constPtr = static_cast<const Patient*>(anotherPatient);
+
+    std::cout << "Name: " << constPtr->getName() << std::endl;
+    std::cout << "Age: " << constPtr->getAge() << std::endl;
+
+    delete anotherPatient;
+    return 0;
+}
+
+
+Observe the following code.
+
+We define a Patient class with a name_ (string) and age_ (integer) as private members.
+
+We create a const Patient object named constPatient.
+We use const_cast to remove the const qualifier from constPatient and modify its age.
+
+We use reinterpret_cast to reinterpret the address of constPatient as an integer pointer.
+
+We use static_cast to convert a non-const pointer to a const pointer.
+
+Remember that casting should be used carefully, especially when dealing with const objects. It’s essential to understand the implications and use the appropriate cast for the situation.
+
+---------------------------------------------------------------------------
+
+Namespace concept in C++
+
+1. to indicate domain, so that if two people create classes or functions with the same
+name we will have a way to differentiate it.
+
+example
+
+#include <iostream>
+#include <string>
+
+// Custom namespace for medical-related classes
+namespace MedicalDomain {
+    class MedicalDevice {
+    public:
+        MedicalDevice(const std::string& serialno, const std::string& manufacturerid, const std::string& name)
+            : serialno_(serialno), manufacturerid_(manufacturerid), name_(name) {}
+
+        // Pure virtual function for displaying device information
+        virtual void displayInfo() const = 0;
+
+    protected:
+        std::string serialno_;
+        std::string manufacturerid_;
+        std::string name_;
+    };
+
+    class BloodPressureMonitor : public MedicalDevice {
+    public:
+        BloodPressureMonitor(const std::string& serialno, const std::string& manufacturerid, const std::string& name)
+            : MedicalDevice(serialno, manufacturerid, name) {}
+
+        // Implement the pure virtual function
+        void displayInfo() const override {
+            std::cout << "Blood Pressure Monitor Info:" << std::endl;
+            std::cout << "Serial Number: " << serialno_ << std::endl;
+            std::cout << "Manufacturer ID: " << manufacturerid_ << std::endl;
+            std::cout << "Device Name: " << name_ << std::endl;
+        }
+    };
+}  // End of namespace MedicalDomain
+
+int main() {
+    // Example usage within the namespace
+    MedicalDomain::BloodPressureMonitor bpm("BP12345", "ABC Medical", "BP Pro");
+    bpm.displayInfo();
+
+    return 0;
+}
+
+---------------------------------------------------------------------
+
+Templates
+
+Templates provide a way to create reusable functions and classes that can operate on various types without duplicating code.
+
+Function Templates:
+A function template allows you to define a generic function that can work with different data types.
+You specify the template parameter (also called a type parameter) using angle brackets (<>).
+Example of a simple function template
+
+template <typename T>
+T add(T a, T b) {
+    return a + b;
+}
+
+
+Class Templates:
+Similar to function templates, class templates allow you to create generic classes.
+You can define a class with one or more template parameters.
+Example of a simple class template:
+template <typename T>
+
+class Stack {
+private:
+    std::vector<T> data;
+
+public:
+    void push(const T& value) {
+        data.push_back(value);
+    }
+
+    T pop() {
+        T value = data.back();
+        data.pop_back();
+        return value;
+    }
+};
+
+Template Parameters:
+Template parameters can be types (typename or class) or non-type parameters (such as integers).
+You can have multiple template parameters separated by commas.
+Example with multiple parameter
+
+template <typename T, int N>
+class FixedSizeArray {
+private:
+    T elements[N];
+
+public:
+    // ...
+};
+
+
+To use a template, you need to instantiate it with specific types or values.
+Example of function template instantiation
+
+int result = add(5, 3);  // Instantiated for int
+double sum = add(2.5, 1.8);  // Instantiated for double
+
+Type Deduction:
+C++ can deduce the template type based on the arguments passed during instantiation
+
+auto result = add(5, 3);  // Deduced as int
+
+Specialization:
+You can specialize templates for specific types or values.
+Example of function template specialization:
+
+template <>
+double add(double a, double b) {
+    return a + b + 1.0;  // Custom behavior for doubles
+}
+
+Templates are used in C++ for creating generic algorithms, containers, and data structures. They allow you to write flexible and efficient code that adapts to
+ different data types while avoiding code duplication.
+
+ Look at the example below
+ #include <iostream>
+#include <iomanip>
+
+// Medical domain namespace
+namespace MedicalDomain {
+
+    // Template function to calculate BMI
+    template <typename T>
+    T calculateBMI(T weight, T height) {
+        // BMI formula: weight (kg) / (height (m))^2
+        return weight / (height * height);
+    }
+
+}  // End of namespace MedicalDomain
+
+int main() {
+    // Example usage
+    double weightKg = 70.0;  // Weight in kilograms
+    double heightMeters = 1.75;  // Height in meters
+
+    // Calculate BMI using the template function
+    double bmi = MedicalDomain::calculateBMI(weightKg, heightMeters);
+
+    // Display the result
+    std::cout << "Patient's BMI: " << std::fixed << std::setprecision(2) << bmi << std::endl;
+
+    return 0;
+}
+
+Example of Template class
+#include <iostream>
+#include <string>
+
+namespace MedicalDomain {
+
+    // Template class for vital signs
+    template <typename T>
+    class VitalSigns {
+    private:
+        T heartRate_;
+        T bloodPressure_;
+        T temperature_;
+
+    public:
+        VitalSigns(T heartRate, T bloodPressure, T temperature)
+            : heartRate_(heartRate), bloodPressure_(bloodPressure), temperature_(temperature) {}
+
+        // Getter methods
+        T getHeartRate() const {
+            return heartRate_;
+        }
+
+        T getBloodPressure() const {
+            return bloodPressure_;
+        }
+
+        T getTemperature() const {
+            return temperature_;
+        }
+
+        // Setter methods
+        void setHeartRate(T rate) {
+            heartRate_ = rate;
+        }
+
+        void setBloodPressure(T pressure) {
+            bloodPressure_ = pressure;
+        }
+
+        void setTemperature(T temp) {
+            temperature_ = temp;
+        }
+    };
+
+}  // End of namespace MedicalDomain
+
+int main() {
+    // Example usage of VitalSigns with different data types
+    MedicalDomain::VitalSigns<int> patient1(75, 120, 98);  // Integer values
+    MedicalDomain::VitalSigns<double> patient2(68.5, 118.5, 98.6);  // Double values
+
+    std::cout << "Patient 1 - Heart Rate: " << patient1.getHeartRate() << std::endl;
+    std::cout << "Patient 2 - Temperature: " << patient2.getTemperature() << std::endl;
+
+    return 0;
+}
+
+Looking at surely we can make out every function or a class cannot be templatized
+we should be convinced that our function or class can be made data type independent.
+so think of the scenario first..
+-----------------------------------------------------------------------------
+
+Exception handling.
+
+1. when a function executes and it results in a runtie problem we can think
+of doing exception handling. typical logic is..
+
+
+we have a function f1 running... some line in the function is causing
+an exception , if we have the try block whther normal flow of code
+is running, when an exeption occurs, an exception variable is thrown.
+and in the corresponding catch block if we have caught that data type then
+we can decide what to deal with the error. example.
+
+
+#include <iostream>
+#include <stdexcept>  // Include the standard exception classes
+
+// Function that divides two numbers
+double divide(double numerator, double denominator) {
+    if (denominator == 0.0) {
+        // Throw a runtime error if denominator is zero
+        throw std::runtime_error("Division by zero!");
+    }
+    return numerator / denominator;
+}
+
+int main() {
+    try {
+        double result = divide(10.0, 0.0);
+        std::cout << "Result: " << result << std::endl;
+    } catch (const std::exception& e) {
+        // Catch the exception and handle it
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+
+Observe the following we have a try block in main function.
+the devide function during some circumstance throws a runtime_error object
+since it is not enclosed in try and block inside the divide function
+control comes to the catch block where it is handled.
+by using e.what we typially get a some reason 
+
+
+Analyze the below code
+
+#include <iostream>
+#include <stdexcept>  // Include the standard exception classes
+
+namespace MedicalDomain {
+
+    class Patient {
+    private:
+        std::string name_;
+        double weightKg_;
+        double heightMeters_;
+
+    public:
+        Patient(const std::string& name, double weightKg, double heightMeters)
+            : name_(name), weightKg_(weightKg), heightMeters_(heightMeters) {}
+
+        // Calculate BMI
+        double calculateBMI() const {
+            if (heightMeters_ == 0.0) {
+                throw std::runtime_error("Invalid height: Cannot divide by zero!");
+            }
+            return weightKg_ / (heightMeters_ * heightMeters_);
+        }
+
+        // Getter for patient name
+        std::string getName() const {
+            return name_;
+        }
+    };
+
+}  // End of namespace MedicalDomain
+
+int main() {
+    try {
+        // Create a patient
+        MedicalDomain::Patient patient("Alice", 70.0, 0.0);  // Invalid height (zero)
+
+        // Calculate BMI
+        double bmi = patient.calculateBMI();
+        std::cout << "Patient " << patient.getName() << "'s BMI: " << bmi << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+
+in the above code also you see that calculateBMI function is executing
+it results an exception and it is handled in the catch block.
+
+#include <iostream>
+#include <new>  // Include the new header for std::bad_alloc
+
+int main() {
+    try {
+        // Allocate memory for an array of 100 integers
+        int* myArray = new int[100];
+
+        // Use the allocated memory (e.g., initialize values)
+        for (int i = 0; i < 100; ++i) {
+            myArray[i] = i * 10;
+        }
+
+        // Deallocate the memory
+        delete[] myArray;
+    } catch (const std::bad_alloc& e) {
+        // Handle the exception
+        std::cerr << "Memory allocation failed: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+
+
+We use a try block to wrap the code that may throw exceptions.
+Inside the try block, we allocate memory for an array of 100 integers using new.
+If memory allocation fails (due to insufficient memory), a std::bad_alloc exception is thrown.
+The catch block catches the exception and handles it by printing an error message.
+Remember to always release the allocated memory using delete (or delete[] for arrays) to avoid memory leaks. 
+
+
+-------------------------------------------------------------------------
+
+In C++, **STL** stands for **Standard Template Library**. It is a  collection of template classes and functions that provide common data structures (such as vectors, lists, and maps) and algorithms (such as sorting, searching, and manipulating data) for use in C++ programs.
+
+Here are the key components of the STL:
+
+1. **Containers**:
+   - Containers are data structures that hold collections of elements.
+   - Common containers include:
+     - `std::vector`: A dynamic array that can grow or shrink.
+     - `std::list`: A doubly-linked list.
+     - `std::map` and `std::unordered_map`: Associative containers that store key-value pairs.
+     - `std::set` and `std::unordered_set`: Containers that store unique elements.
+   - Containers provide various methods for insertion, deletion, and access.
+
+2. **Algorithms**:
+   - The STL includes a wide range of algorithms that operate on containers.
+   - Algorithms include sorting (`std::sort`), searching (`std::find`), and manipulation (`std::transform`).
+   - These algorithms are generic and work with any container type.
+
+3. **Iterators**:
+   - Iterators allow you to traverse elements in a container.
+   - They act as pointers to elements within a container.
+   - Examples include `begin()`, `end()`, and `std::advance()`.
+
+4. **Function Objects (Functors)**:
+   - Function objects are objects that behave like functions.
+   - They are used with algorithms to customize their behavior.
+   - Examples include `std::less`, `std::greater`, and custom functors.
+
+5. **Utilities**:
+   - The STL provides utility classes and functions.
+   - Examples include `std::pair` (for key-value pairs), `std::swap`, and `std::move`.
+
+
+Various kinds of iterators present in STL are
+
+iterators available in the C++ Standard Template Library (STL). Iterators allow you to traverse elements in containers and sequences. Here are some common types of iterators:
+
+1. **Input Iterators**:
+   - These iterators allow reading values from a container.
+   - Examples: `std::istream_iterator`, `std::cin`.
+
+2. **Output Iterators**:
+   - These iterators allow writing values to a container.
+   - Examples: `std::ostream_iterator`, `std::cout`.
+
+3. **Forward Iterators**:
+   - These iterators allow both reading and writing.
+   - They support single-pass traversal.
+   - Examples: `std::forward_list`, `std::list`.
+
+4. **Bidirectional Iterators**:
+   - These iterators allow bidirectional traversal (forward and backward).
+   - Examples: `std::list`, `std::set`, `std::map`.
+
+5. **Random Access Iterators**:
+   - These iterators allow efficient random access (jumping to any position).
+   - They support arithmetic operations (e.g., `+`, `-`).
+   - Examples: `std::vector`, `std::array`.
+
+6. **Container-Specific Iterators**:
+   - Some containers provide specialized iterators:
+     - `std::vector`: Random access iterators.
+     - `std::list`: Bidirectional iterators.
+     - `std::set`, `std::map`: Bidirectional iterators.
+     - `std::unordered_set`, `std::unordered_map`: Forward iterators.
+
+7. **Range-Based Loops**:
+   - Introduced in C++11, range-based loops simplify iteration over containers.
+   - Example:
+     ```cpp
+     std::vector<int> numbers = {1, 2, 3, 4, 5};
+     for (const auto& num : numbers) {
+         std::cout << num << " ";
+     }
+
+
+Function pointers aare mehcnaiss in C to pass function as input arguments to
+other functions. it is used to due to even thandling most of time.
+
+look at the below code.
+
+// Example functions
+double add(double a, double b) {
+    return a + b;
+}
+
+double subtract(double a, double b) {
+    return a - b;
+}
+
+int main() {
+    // Declare function pointers
+    double (*operation)(double, double);
+
+    // Assign the function pointers
+    operation = add;  // Point to the 'add' function
+    std::cout << "Result of add(5.0, 3.0): " << operation(5.0, 3.0) << std::endl;
+
+    operation = subtract;  // Point to the 'subtract' function
+    std::cout << "Result of subtract(5.0, 3.0): " << operation(5.0, 3.0) << std::endl;
+
+    return 0;
+}
+
+
+step 1
+create the function pointer
+   double (*operation)(double, double);
+
+to do that you must know what is return type and input of the function you plan to assing to the function pointer.
+
+step2
+assign the function.
+
+step3 
+when you operate on the pointer, the function will get called.
+
+The whole thing will look stupid if we think of one person doing it.we must know that.
+1. function pointer and pointer operation is done by person X.
+2. function pointer assingment is done by person Y.
+3. so X is able to call a afunctin whose name he does not know.
+find out how qsort works in C. by using an example.
+
+Generic functions 
+
+#include <iostream>
+using namespace std;
+
+// Generic function using template
+template <typename T>
+T myMax(T x, T y) {
+    return (x > y) ? x : y;
+}
+
+int main() {
+    cout << myMax<int>(3, 7) << endl;       // Output: 7
+    cout << myMax<double>(3.0, 7.0) << endl; // Output: 7.0
+    cout << myMax<char>('g', 'e') << endl;  // Output: g
+    return 0;
+}
+
+
+Another example
+#include <iostream>
+using namespace std;
+
+template <typename T>
+class Array {
+private:
+    T* ptr;
+    int size;
+
+public:
+    Array(T arr[], int s) {
+        ptr = new T[s];
+        size = s;
+        for (int i = 0; i < size; i++)
+            ptr[i] = arr[i];
+    }
+
+    void print() {
+        for (int i = 0; i < size; i++)
+            cout << " " << *(ptr + i);
+        cout << endl;
+    }
+};
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    Array<int> a(arr, 5);
+    a.print(); // Output: 1 2 3 4 5
+    return 0;
+}
+
+Look it is templates again at work, when we say generic function.
+
+Functors in c++
+
+Certainly! In C++, functors (also known as function objects) are classes or structs that can be called like functions. They allow us to customize behavior and encapsulate state within a callable object. Let’s explore some examples:
+
+Generic Functors using Templates:
+We can create a functor by overloading the function-call operator (). Here’s a simple example:
+
+#include <iostream>
+using namespace std;
+
+// Functor class
+class Greet {
+public:
+    void operator()() {
+        cout << "Hello World!" << endl;
+    }
+};
+
+int main() {
+    Greet greet; // Create an instance of Greet
+    greet();     // Call the object as a function
+    return 0;
+}
+
+Main thoughts on STL or any Datastructure library.
+1. dont think about names, just think what operations you want and pick a Datastructure from the library.
+
+
+---------------------------------------------------
+
+C++ 11 features
+
+Certainly! **C++11**, also known as **C++0x**, was a major update to the C++ programming language and was officially standardized in 2011
+
+
+1. **Auto Keyword**:
+    - The `auto` keyword allows automatic type deduction during variable declaration. It infers the type based on the initializer.
+    - Example:
+        ```cpp
+        auto x = 42; // x is deduced as int
+        ```
+
+2. **Range-Based For Loop**:
+    - Simplifies iterating over elements in a container (e.g., arrays, vectors, maps) using a concise syntax.
+    - Example:
+        ```cpp
+        std::vector<int> numbers = {1, 2, 3, 4};
+        for (int num : numbers) {
+            // Process each number
+        }
+        ```
+
+3. **Lambda Expressions**:
+    - Anonymous functions that allow you to define small, inline functions directly in your code.
+    - Useful for algorithms, sorting, and custom predicates.
+    - Example:
+        ```cpp
+        auto add = [](int a, int b) { return a + b; };
+        ```
+
+4. **Smart Pointers**:
+    - `std::unique_ptr`, `std::shared_ptr`, and `std::weak_ptr` provide safer memory management.
+    - Automatically handle object destruction and reference counting.
+    - Example:
+        ```cpp
+        std::unique_ptr<int> ptr = std::make_unique<int>(42);
+        ```
+
+5. **Concurrency Support**:
+    - Introduces thread support with `std::thread`, `std::mutex`, and other synchronization primitives.
+    - Facilitates writing multithreaded applications.
+    - Example:
+        ```cpp
+        std::thread t([]() { /* Your thread code here */ });
+        t.join(); // Wait for the thread to finish
+        ```
+
+6. **New Standard Library Features**:
+    - R-value references, move semantics, and perfect forwarding.
+    - Regular expressions (`std::regex`).
+    - Type traits (`std::is_same`, `std::enable_if`, etc.).
+    - Improved containers (`std::unordered_map`, `std::unordered_set`, etc.).
+
+7. **Other Features**:
+    - `constexpr` for compile-time evaluation.
+    - `nullptr` as a safer alternative to `NULL`.
+    - User-defined literals (e.g., `"42"_int`).
+    - Scoped enums.
+    - Variadic templates.
+
+    --------------------------------------------------------
+
+
+
+Certainly! **C++14**, also known as **C++1y**, introduced several new features and improvements to the C++ language. While it was a minor release compared to C++11, it still brought valuable enhancements. Let's explore some of the key features introduced in C++14:
+
+1. **Binary Literals**:
+    - Binary literals provide a convenient way to represent base-2 numbers directly in your code.
+    - Syntax: A binary integer literal (base two) begins with `0b` or `0B` and consists of a sequence of binary digits (0 or 1).
+    - Example:
+        ```cpp
+        auto a = 0b100'0001; // Equivalent to decimal 65
+        auto b = 0b1111'1110; // Equivalent to decimal 254
+        ```
+
+2. **Digit Separator**:
+    - The single-quote character `'` can now be used within numeric literals for aesthetic readability.
+    - It does not affect the numeric value but improves readability.
+    - Example:
+        ```cpp
+        auto millions = 1'000'000;
+        auto pi = 3.14159'26535'897;
+        ```
+
+3. **Generic Lambdas**:
+    - C++11 required lambda parameters to be declared with concrete types. In C++14, you can use the `auto` type-specifier in the parameter list, enabling polymorphic lambdas.
+    - Example:
+        ```cpp
+        auto lambda14 = [](auto x, auto y) { return x + y; };
+        int twelve = lambda14(3, 9); // Result: 12
+        ```
+
+4. **Generalized Lambda Captures**:
+    - Allows creating lambda captures initialized with arbitrary expressions.
+    - You can capture values computed at runtime.
+    - Example:
+        ```cpp
+        int factory(int i) { return i * 10; }
+        auto f = [x = factory(2)] { return x; }; // Captures the result of factory(2)
+        ```
+
+5. **Variable Templates**:
+    - C++14 allows `constexpr` variables to be templated.
+    - Useful when you want to vary the type of a variable used in a generic function.
+    - Example:
+        ```cpp
+        template <typename T>
+        constexpr T pi = T(3.14159265359);
+
+        template <typename T>
+        T area_of_circle_with_radius(T r) {
+            return pi<T> * r * r;
+        }
+        ```
+
+6. **`constexpr` Enhancements**:
+    - C++14 relaxes restrictions on `constexpr` functions.
+    - Allows conditional statements (e.g., `if`, `switch`) and loops (including range-based `for` loops).
+    - Enables more complex compile-time computations.
+
+
+some c++ 17 features.
+
+
+1. **Structured Bindings**:
+    - Allows decomposing tuples, pairs, and other structured types into individual variables.
+    - Simplifies working with complex return types from functions.
+    - Example:
+        ```cpp
+        auto [x, y] = std::make_pair(10, 20);
+        ```
+
+2. **`if constexpr` Statement**:
+    - Enables conditional compilation based on compile-time conditions.
+    - Code inside `if constexpr` is only instantiated if the condition is true.
+    - Useful for template metaprogramming.
+    - Example:
+        ```cpp
+        template <typename T>
+        void print_size(T value) {
+            if constexpr (sizeof(T) == 4) {
+                std::cout << "Size: 4 bytes\n";
+            } else {
+                std::cout << "Other size\n";
+            }
+        }
+        ```
+
+3. **`std::optional`**:
+    - Represents an optional value (either contains a value or is empty).
+    - Useful for handling potentially missing values without using pointers.
+    - Example:
+        ```cpp
+        std::optional<int> maybeValue;
+        if (maybeValue) {
+            int val = *maybeValue;
+        }
+        ```
+
+4. **Fold Expressions**:
+    - Allows applying binary operations (e.g., addition, logical AND) to a parameter pack.
+    - Simplifies variadic template code.
+    - Example:
+        ```cpp
+        template <typename... Args>
+        bool all_true(Args... args) {
+            return (... && args);
+        }
+        ```
+
+5. **`std::string_view`**:
+    - Non-owning view of a character sequence (like a substring).
+    - Efficiently handles read-only access to strings without copying.
+    - Example:
+        ```cpp
+        std::string_view view("Hello, World!");
+        ```
+
+6. **Filesystem Library (`<filesystem>`)**:
+    - Provides portable file and directory manipulation functions.
+    - Simplifies working with files, paths, and directories.
+    - Example:
+        ```cpp
+        #include <filesystem>
+        std::filesystem::path filePath = "/path/to/myfile.txt";
+        ```
+
+7. **Other Features**:
+    - Improved `constexpr` (including lambda support).
+    - `std::variant` and `std::any`.
+    - `std::invoke` for invoking callable objects.
+    - Nested namespaces.
+    - Inline variables.
+
+
+
+c++ 20 features
+**C++20** introduced several new features and improvements to the C++ programming language. Here are some of the key features:
+
+1. **Concepts Library**:
+    - Concepts allow you to specify constraints on template parameters.
+    - Define requirements for template arguments (e.g., must be arithmetic, must have specific member functions).
+    - Improves error messages during template instantiation.
+    - Example:
+        ```cpp
+        template <typename T>
+        concept Arithmetic = std::is_arithmetic_v<T>;
+
+        template <Arithmetic T>
+        T add(T a, T b) {
+            return a + b;
+        }
+        ```
+
+2. **Three-Way Comparison (`<=>`)**:
+    - The spaceship operator (`<=>`) provides a concise way to define comparison operations.
+    - Automatically generates comparison operators (`<`, `>`, `==`, etc.) based on the three-way comparison.
+    - Example:
+        ```cpp
+        struct Point {
+            int x, y;
+            auto operator<=>(const Point&) const = default;
+        };
+        ```
+
+3. **Ranges Library**:
+    - Introduces a new library for working with ranges of elements (e.g., containers, iterators).
+    - Provides algorithms and views for common operations (e.g., filtering, transforming, sorting).
+    - Example:
+        ```cpp
+        std::vector<int> numbers = {1, 2, 3, 4};
+        auto even_numbers = numbers | std::views::filter([](int n) { return n % 2 == 0; });
+        ```
+
+4. **`std::string` Functions**:
+    - New member functions for `std::string` (e.g., `starts_with`, `ends_with`, `contains`).
+    - Simplifies string manipulation.
+    - Example:
+        ```cpp
+        std::string text = "Hello, World!";
+        if (text.starts_with("Hello")) {
+            // Do something
+        }
+        ```
+
+5. **Modules**:
+    - Introduces a new modularization system for organizing code.
+    - Improves build times and reduces header dependencies.
+    - Example:
+        ```cpp
+        // Module interface unit (my_module.cppm)
+        export module my_module;
+        export int add(int a, int b);
+
+        // Module implementation unit (my_module.cpp)
+        module my_module;
+        int add(int a, int b) {
+            return a + b;
+        }
+        ```
+
+6. **Other Features**:
+    - `std::format` for type-safe string formatting.
+    - `std::span` for non-owning views of arrays.
+    - `std::ranges::sort` for simplified sorting.
+    - `std::chrono` enhancements.
+    - `std::bit_cast` for type punning.
+
+-----------------------
+
+compiler provided by default
+In C++, the compiler automatically generates several **special member functions** for a class if they are not explicitly declared by the programmer. These functions play a crucial role in defining the behavior of user-defined types. Let's explore the default functions provided by the C++ compiler:
+
+1. **Default Constructor**:
+   - The compiler generates a default constructor if the class does not declare any constructor of its own.
+   - The default constructor initializes the class members (variables) to their default values.
+   - For example:
+     ```cpp
+     class MyClass {
+     public:
+         // Compiler-generated default constructor
+         MyClass() { /* Initialization code */ }
+     };
+     ```
+
+2. **Copy Constructor**:
+   - If the class does not define a copy constructor, the compiler generates one.
+   - The copy constructor creates a new object by copying the values from an existing object of the same class.
+   - For example:
+     ```cpp
+     class MyClass {
+     public:
+         // Compiler-generated copy constructor
+         MyClass(const MyClass& other) { /* Copy values from 'other' */ }
+     };
+     ```
+
+3. **Copy Assignment Operator (Copy Assignment)**:
+   - If the class does not provide its own copy assignment operator (`operator=`), the compiler generates one.
+   - The copy assignment operator allows you to assign one object's values to another object of the same class.
+   - For example:
+     ```cpp
+     class MyClass {
+     public:
+         // Compiler-generated copy assignment operator
+         MyClass& operator=(const MyClass& other) { /* Assign values from 'other' */ }
+     };
+     ```
+
+4. **Destructor**:
+   - The compiler generates a destructor if the class does not declare its own destructor.
+   - The destructor is called when an object goes out of scope or is explicitly deleted.
+   - It performs cleanup tasks (e.g., releasing resources, deallocating memory).
+   - For example:
+     ```cpp
+     class MyClass {
+     public:
+         // Compiler-generated destructor
+         ~MyClass() { /* Cleanup code */ }
+     };
+     ```
+
+5. **Move Constructor and Move Assignment Operator (C++11 and later)**:
+   - Starting from C++11, the compiler also generates move constructor and move assignment operator under certain conditions.
+   - These functions allow efficient transfer of resources (e.g., memory, file handles) from one object to another.
+   - They are automatically generated if no user-declared copy constructor, copy assignment, move constructor, or move assignment exists.
+   - Example:
+     ```cpp
+     class MyClass {
+     public:
+         // Compiler-generated move constructor
+         MyClass(MyClass&& other) noexcept { /* Move resources from 'other' */ }
+
+         // Compiler-generated move assignment operator
+         MyClass& operator=(MyClass&& other) noexcept { /* Move resources from 'other' */ }
+     };
+     ```
+
+(1) Default functions in C++11 - OpenGenus IQ. https://iq.opengenus.org/default-functions-in-cpp11/.
+(2) What default functions provided by compiler in C++?. https://interviewsansar.com/default-member-functions-for-a-class-in-c/.
+(3) Default Methods in C++ with Examples - GeeksforGeeks. https://www.geeksforgeeks.org/default-methods-in-c-with-examples/.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 
+	 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

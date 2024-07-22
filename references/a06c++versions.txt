@@ -1,0 +1,58 @@
+
+
+ C++98 (1998)
+- Introduction of the Standard Template Library (STL): Containers, algorithms, iterators, and function objects.
+- Exception Handling: `try`, `catch`, `throw`.
+- Namespaces: To avoid name conflicts.
+- bool Type: Introduction of `bool` type.
+- New Keywords: `explicit`, `mutable`, `typename`.
+
+ C++03 (2003)
+- Bug Fixes and Minor Improvements: Mostly a bug-fix release for C++98. It included improvements based on the implementation experiences and addressed various defects.
+
+ C++11 (2011)
+- Auto Keyword: Type inference using `auto`.
+- Range-Based for Loops: Simplified iteration over containers.
+- Lambda Expressions: Anonymous functions.
+- Smart Pointers: `std::shared_ptr`, `std::unique_ptr`, `std::weak_ptr`.
+- Rvalue References and Move Semantics: Efficient resource management.
+- nullptr Keyword: Replaces `NULL`.
+- Static Assertions: `static_assert`.
+- Variadic Templates: Template parameter packs.
+- constexpr Keyword: Compile-time constants.
+- Thread Support: `std::thread` and synchronization primitives.
+- Uniform Initialization: Braced initialization.
+
+ C++14 (2014)
+- Generic Lambdas: Auto-deduced lambda parameters.
+- Variable Templates: Template variables.
+- Binary Literals: Prefix `0b`.
+- Return Type Deduction: Simplified syntax for return type deduction.
+- Relaxed constexpr: Expanded the use of `constexpr`.
+- Lambda Capture Expressions: Move capture in lambdas (`[= std::move(x)]`).
+
+ C++17 (2017)
+- If and Switch with Initializers: `if (init; condition)`.
+- Structured Bindings: Decomposing tuples and structs.
+- Inline Variables: Inline variable definitions.
+- Filesystem Library: `std::filesystem` for file operations.
+- Optional, Variant, and Any: `std::optional`, `std::variant`, `std::any`.
+- Parallel Algorithms: Parallel versions of STL algorithms.
+- std::byte: Byte type.
+- New Attributes: `[[fallthrough]]`, `[[nodiscard]]`, `[[maybe_unused]]`.
+
+ C++20 (2020)
+- Concepts: Constraints on template parameters.
+- Ranges: Improved iteration over collections.
+- Coroutines: Asynchronous code.
+- Modules: Alternative to header files.
+- Three-Way Comparison (Spaceship Operator): `operator<=>`.
+- Calendar and Time Zones Library: `std::chrono` enhancements.
+- Expanded constexpr: More use of `constexpr`.
+- New Attributes: `[[likely]]`, `[[unlikely]]`.
+
+ C++23 (Expected 2023)
+- Standard Library Updates: Enhancements and additions.
+- Extended constexpr: Even more uses.
+- Improved Range Libraries: Enhanced range and iterator libraries.
+- More Template Improvements: Continued evolution of template features.

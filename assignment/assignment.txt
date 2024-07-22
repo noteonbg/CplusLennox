@@ -1,0 +1,82 @@
+program 1.
+
+
+build  a calculator program for adding, subtracting
+and division, think what all could be the basics
+you need to put in the design.
+
+
+For all the below assinments look assinments
+make use of the a01codesample.txt present in the assingment folder.
+
+
+program 2 
+
+create a class called TheromoStat with
+the following inforamtion.
+
+    double currentTemperature;
+    double desiredTemperature;
+    bool heatingOn;
+    bool coolingOn;
+
+provide appropriate functions.
+
+
+provide options for the following.
+
+Create a menu as follows.
+
+0. Initialize the Theromostat. 
+1. change Temparature.
+2. change heating on/off
+3. change collingOn/off
+0. Exit
+
+Program 3.
+
+Create a class called HVACSystem which has a thermostat,
+venitallator system, airconditoiner and thermostat inside
+it and provide a menu as follows.
+
+
+1. Activate the hvac system, set the therostat, ac and VentilationSystem sytem 
+with some defaults.
+2. show status of system.
+show the current values associated with theromstat, VentilationSystem
+and airconditioner.
+3. change 
+0. Exit
+
+when change option show a further menu as 
+Change 
+
+1. airconditioner.
+2. thermostat
+3. VentilationSystem
+show the existing values for the selected system
+and ask for new values change it and return back to the
+earlier menu.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
