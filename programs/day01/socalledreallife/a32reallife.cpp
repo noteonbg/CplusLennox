@@ -8,6 +8,7 @@ int main() {
     // Modify the status
     myDevice.setStatus("In Use");
     myDevice.displayInfo();
+    int result = MathFunctions::add(2,3);
     return 0;
 }
 

@@ -1,0 +1,83 @@
+
+/*
+// MedicalDevice.h (Header file)
+#ifndef MEDICALDEVICE_H
+#define MEDICALDEVICE_H
+
+
+#include <string>
+
+
+//class definition will go into a header file
+class MedicalDevice {
+private:
+    int deviceID;
+    std::string patientName;
+    std::string deviceStatus;
+
+public:
+    // Constructor
+    MedicalDevice(int id, const std::string& name, const std::string& status);
+
+    // Getter for device ID
+    int getDeviceID() const;
+
+    // Setter for device status
+    void setStatus(const std::string& newStatus);
+
+    // Display device information
+    void displayInfo() const;
+};
+
+#endif // MEDICALDEVICE_H
+
+
+
+
+//declarations will go into the seaprate file which will become a library
+// MedicalDevice.cpp (Source file)
+//#include "MedicalDevice.h"
+#include <iostream>
+
+// Constructor definition
+MedicalDevice::MedicalDevice(int id, const std::string& name, const std::string& status)
+    : deviceID(id), patientName(name), deviceStatus(status) {}
+
+// Getter definition
+int MedicalDevice::getDeviceID() const {
+    return deviceID;
+}
+
+// Setter definition
+void MedicalDevice::setStatus(const std::string& newStatus) {
+    deviceStatus = newStatus;
+}
+
+// Display information definition
+void MedicalDevice::displayInfo() const {
+    std::cout << "Device ID: " << deviceID << std::endl;
+    std::cout << "Patient Name: " << patientName << std::endl;
+    std::cout << "Status: " << deviceStatus << std::endl;
+
+
+}
+
+
+// main.cpp
+//#include "MedicalDevice.h"
+
+int main() {
+    MedicalDevice myDevice(123, "Patient X", "Active");
+    myDevice.displayInfo();
+    // Modify the status
+    myDevice.setStatus("In Use");
+    myDevice.displayInfo();
+    return 0;
+}
+
+#endif
+
+*/
+
+
+

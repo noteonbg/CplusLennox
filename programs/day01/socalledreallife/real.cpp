@@ -3,6 +3,12 @@
 #include "real.h"
 #include <iostream>
 
+namespace MathFunctions {
+    // Definition of functions within the namespace
+    int add(int a, int b) {
+        return a + b;
+    }
+}
 // Constructor definition
 MedicalDevice::MedicalDevice(int id, const std::string& name, const std::string& status)
     : deviceID(id), patientName(name), deviceStatus(status) {}

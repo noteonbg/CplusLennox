@@ -59,6 +59,152 @@ show the existing values for the selected system
 and ask for new values change it and return back to the
 earlier menu.
 
+--------------------------------------------------------------
+
+Day 2
+
+
+Program 4
+
+1. use or create the class HVACSystem, add an inforamtion
+called deviceId and location which are of type int,
+and string provide appropriate methods. content
+of HVACSystem will be .
+
+1. deviceId
+2. location
+3. TheromoStat
+4. AirConditioner
+5. VentilationSystem 
+
+and their  apropriate methods.
+
+
+2. in some other class or function, create the 
+function which has 5 element array of HVACSystem
+fill up some random values for the deviceId
+location, thermostat, airconditioner and ventillation systems.
+
+3. show a menu as follows.
+
+1. view the details of hvac system.
+2. update the details of the hvac system.
+3. view all devices based  on location.
+4. exit
+
+when option 1 is selected print all the details
+of hvac ssytem including deviceid, location,
+thermostat inforation, Airconditioner inforamtion,
+ventillationsystem information..
+
+when option 2 is selected ask for deviceid
+and locate the particular hvac system and ask for
+what to update.
+
+1. hvac system info
+2. thermostat
+3. airconditioner.
+4. ventillation system.
+
+based on the input, ask for necessaryinformation about
+the particular for example if person selects hvac system
+ask for new location and change only location.
+
+if for thermostat, ask for 
+currentTemperature;
+     desiredTemperature;
+    heatingOn;
+    coolingOn;
+
+similarly for other entities.
+
+option 3.
+when user is telling 3, ask for location
+and show entire hvac details in that location.
+
+option 4.
+exit the program.
+
+----------------------------------------------------------------
+
+program 5
+
+create a class called ThermoStat and allocate
+memory for urrentTemperature;
+     desiredTemperature in a dynamic way
+     and demonstrate need for copy constructor
+destructor and overloaded assingment operator.
+
+------------------------------------------------------------
+
+program 6.
+overload the > and < and == operator in VentilationSystem
+system and show that we can compare two VentilationSystem
+objects for >,< and  ==.
+
+---------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

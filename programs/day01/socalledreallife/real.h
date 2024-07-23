@@ -5,6 +5,11 @@
 
 #include <string>
 
+namespace MathFunctions {
+    // Declaration of functions within the namespace
+    int add(int a, int b);
+}
+
 
 //class definition will go into a header file
 class MedicalDevice {

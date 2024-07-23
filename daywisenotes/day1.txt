@@ -107,8 +107,24 @@ c++17.
 
 6.00PM
 
+function 5/5
+1. function def
+I should know who/what is going to  call the function
+how will i indicate failure or success
+
+2. function calling
+common functions, opening documentation.
+
+3. function assignment
+function asisngment  is not function calling.
 
 
+variable 5/5
+1. we have to decide operations and then choose data type
+2. we have to know the scope.
+
+
+1. namespace to avoid naming conflicts...
 
 
 
@@ -123,6 +139,142 @@ c++17.
 
 
  
+functions
+
+1. so called global function outside namespace which is rare
+2. function inside namespce.
+
+while calling funtions inside namespace we put namespace::functionname();
+
+3. functions inside class. what it means.. depends on type of function
+you have the class.
+
+
+why do we create class in c++..? why you create a structure in C
+== create  project specific data type  ==model.
+
+data type = content + operations.
+in c style structure typically we cannot define function inside it.
+in c++ we can.
+
+c++ structure == c++ class practically
+content = variables present in the class.
+operations = funtions present in the class.
+
+what is writng a class. creating a new data type
+you have a new data type.. what do we do after that
+
+1. create a variable.
+2. operate on it.
+
+1. create an object.
+2. call non static functions of the object.
+
+nPQR
+{
+
+public void freak;
+public void junk;
+
+}
+
+
+I am designing aclass
+
+1. content + operations.
+2. constructor design.
+
+
+I doing class design.
+1. non static variables in the class.
+2. non static functions in the class.
+3. constructors.
+
+constructors. why..
+1. we have to value collaboration.
+2. imagine two people X and Y.
+X is creating the Thermostat class.  == creator of the data type.
+Y is user of the ThermoStat class.  == user of the data type, he will create variables.
+X wants to put some conditions on Y. example dont create Thermostat until you
+mention minimum tempature... how can X do.. X can do write by writing a constructor
+in this thermostat class.
+
+show rigour in constructor design... 
+constructor function gets called automatically when object is getting created..
+we know we can write multiple constructors, welcome to overloading..
+
+if you see static word inside class obviously dont relate it to anything of C.
+
+reference in c++
+
+1. although internally it is a pointer.. still we will use the better word
+it is an alias for a variables, references needs to be initialized..
+
+
+int with any data type
+int i =3;
+int &x =i;
+here we term x as a reference... reference to be initlized at the point of
+creation..
+
+
+int i=7;
+int &x=i;
+x =7;
+print i;
+
+the whole program is stupid why..
+
+important point, reference creation and assignment happens in different functions.
+
+
+whatever spoke now is called lvalue reference.. 
+refrence == lvalue reerence
+
+c++11 = rvalue references.
+
+int &i=3; //this wont compile
+
+int &&i =3;//this will compile
+&&i ...  rvalue reference..
+
+
+
+
+
+all of us should be afraid of logical errors.
+
+Class Circle
+{
+public:
+int radius
+Circle()
+{
+	Circle(3);
+
+}
+
+Circle(int x)
+{
+radius =x;
+}
+
+
+}
+
+
+Circle c;
+c.radius() 
+
+
+classname() == anonymous object
+
+
+
+
+
+
+variables
 
 
 
@@ -131,7 +283,79 @@ c++17.
 
 
 
+i have a hardware X
 
+simulation for X
+i have a code Y.
+
+Y code if i use assert, if fails X will get spoilt.
+
+
+
+
+
+this pointer?
+
+1. you must be a non static function.
+2. that means this pointer is local
+3. it gets created automatically and it points to the calling object( self referential pointer)
+4. when to use it, method chaining.. style of code..
+5. when a local variable and non static variable are with the same name..
+
+
+class A
+{
+int i;
+public: 
+ void f1() { 
+this 	
+	i =4;
+
+}
+
+A obj, obj2;
+obj.f1();
+obj2.f1();
+
+
+f1 does not by know by default whether to deal with i of obj or obj2.
+the this present inside f1 will give it an idea which i it should deal with.
+
+
+f1().f2().f3();
+
+call f1 and whatever object it returns , using that object call f2....
+
+
+
+Destructor.
+
+1. gets called automatically when object is removed from memory.
+2. when object gets removed from memory , depends on where it is
+
+1. heap  -- programmer should call delete.
+2. stack  -- storage class
+destructor is only one...
+
+what you do inside destructor.
+deallocate memory if you have allocated on heap... 
+~classname..
+
+
+
+
+variable  --superset
+object --subset of variable
+reference  --subset of variable
+pointer. --subset of variable.
+
+
+A *ptr;
+ptr is pointer  which point to an object of type A.
+
+
+data type on pointer useless until we operate on the pointer.
+to operate on the pointer, we should have assigned the pointer.
 
 
 
