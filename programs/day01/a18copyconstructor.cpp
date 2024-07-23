@@ -179,7 +179,7 @@ int main() {
 
     }
     //std::cout << device1.getManufacturerID();
-    std::cout  <<"program has ended";
+    std::cout  <<"\n program has ended";
 
 
 
