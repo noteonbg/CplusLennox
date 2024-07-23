@@ -1,0 +1,101 @@
+What are the best practices for defining a function or method: within a class or outside of it
+
+
+1. we are in c++, use functions of the class only if
+you feel 
+1.1 you are creating a data type.
+1.2 you feel logically that function belongs to the class.
+
+in all other cases.
+just create a namespace and dump the function inside it.
+
+
+
+
+namespace x
+f1
+
+.h
+.cpp
+
+multiple .h
+multiple .cpp files
+corresponding to namespace  answer is yes..
+
+
+
+
+
+
+
+create a data type hvac system.
+
+
+hvac system
+
+content
+	 thermostat
+	 ac
+	 ventilator system.
+
+operations
+      activate  hvac system.
+      show status
+      changethehvacsystem(int category)
+ 	
+
+namespace ui
+{
+
+show UI options aand getoption  --x
+whatcategorytochange  --y
+anotherfunction take x and y do the job  -- i call havac sysem
+ui functions
+show menu
+option 1, option 2...
+
+
+}
+
+how to recognize a kid programmer.
+global things will be there.
+
+I think it is always better to call the function and then define it
+than define the function and think where to call it.
+
+
+S  --single responsibility moral science principle
+O  -  open closed principle we should know interfaces..
+first decide what to cook, then we will think how to cook.
+deisng your .h first and then .c
+L -- LIskhov sub... hierarchy.
+I  -- kids know how to make rules and they will everyday 10 ruleswhich nobody will follow..
+D   -- like local variables when you have a doubt.
+principles
+
+we will take a break till 11.15AM.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

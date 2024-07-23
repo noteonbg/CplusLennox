@@ -6,10 +6,13 @@
 /*
 
 The keyword constexpr was introduced in C++11 and improved in C++14.
- it means const expression Like const, it can be applied to variables:
+ it means const expression Like const, it can be applied
+  to variables:
 
-constexpr can also be applied to functions and class constructors.
-constexpr indicates that the value, or return value, is constant and,
+constexpr can also be applied to functions and class
+ constructors.
+constexpr indicates that the value, or return value,
+ is constant and,
 where possible, is computed at compile time.
 
 
@@ -19,8 +22,8 @@ where possible, is computed at compile time.
 
 #if 1
 
-constexpr 
-int square(int x) {
+ 
+constexpr int square(int x) {
     for(int i=0; i<262144; i++);
     return x * x;
 }
@@ -31,12 +34,17 @@ int main() {
     {
 
     auto start = std::chrono::high_resolution_clock::now();    
-    constexpr
-     int value = 5;
+    
+    constexpr int value = 5;
     constexpr
      int result = square(value); // Evaluated at compile time
+     static_assert(result ==25);
     auto end = std::chrono::high_resolution_clock::now();
     
+    int freak =4;
+    int result1 = square(freak);
+
+
     // Calculate the duration in milliseconds
     std::chrono::duration<double, std::milli> duration = end - start;
     std::cout << "\n " << duration.count() << "milli seconds taken";

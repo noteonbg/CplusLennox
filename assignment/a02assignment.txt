@@ -95,7 +95,7 @@ location, thermostat, airconditioner and ventillation systems.
 when option 1 is selected print all the details
 of hvac ssytem including deviceid, location,
 thermostat inforation, Airconditioner inforamtion,
-ventillationsystem information..
+ventillationsystem information.. after asking deviceid
 
 when option 2 is selected ask for deviceid
 and locate the particular hvac system and ask for
@@ -130,7 +130,7 @@ exit the program.
 program 5
 
 create a class called ThermoStat and allocate
-memory for urrentTemperature;
+memory for currentTemperature;
      desiredTemperature in a dynamic way
      and demonstrate need for copy constructor
 destructor and overloaded assingment operator.
@@ -143,6 +143,18 @@ system and show that we can compare two VentilationSystem
 objects for >,< and  ==.
 
 ---------------------------------------------------------------
+
+program 7
+
+0. day02\a39constexpr.cpp see whether this program works.
+and measure time with constexpr..
+
+2. copy constexpr examples in the code. and look
+for codebase...
+
+
+
+
 
 
 

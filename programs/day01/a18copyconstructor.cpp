@@ -91,9 +91,10 @@ struct MedicalDevice {
 private:
     string* serialNumber; // Pointer to dynamically allocated memory
     string deviceName;
-    int manufacturerID;
+    
 
 public:
+    int manufacturerID;
     // Constructor with no arguments
     MedicalDevice() {
 
@@ -137,6 +138,7 @@ public:
         
         if(serialNumber == nullptr)
             std::cout << "ok we got nullptr at serialnumber";
+        std::cout << "\n destructor of medialdevice";
         delete serialNumber; // Deallocate memory for serial number
     }
 
@@ -157,7 +159,8 @@ public:
 void f2(MedicalDevice d1)
 {
     std::cout << "\n f2 function at work \n";
-    //std::cout << d1.getManufacturerID();    
+    d1.manufacturerID=45;
+    std::cout << d1.getManufacturerID();    
 }
 
 int main() {
@@ -167,9 +170,11 @@ int main() {
     MedicalDevice device1("abc123","bp meter",23);
      // Calls the first constructor (no arguments)
     f2(device1);
+
+    /*
     MedicalDevice device3 = device1;
     std::cout << "\n device 3  " << device1.getManufacturerID();
-
+*/
 
 
     }
