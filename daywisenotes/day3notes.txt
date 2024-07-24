@@ -1,0 +1,476 @@
+Complicated thing.
+
+
+1. our code has got some flow.
+2. no event handling
+3. no capability of accommodating change.
+4. nothing can be configured...
+
+
+yesterday story
+
+0. parameter passing picture..
+
+1. we just told about architecture..
+layering..
+ui. storage
+models flow across layers ==this is what project is.
+
+2. in c++ constexpr... copy constructor.. operator overloading...
+
+
+3. overloading of functions , operator overloading..
+function call where name of function has operator>..
+
+
+4.if we declare a function static, 
+
+
+3. code samples .. generalized attributes, lamda expressions..
+strucutured bindings... move things from object to individual
+variables... rule of 3 rule of 5.
+conversibon functions in c++
+
+
+
+
+
+
+
+in science terminologies have meaning of it.
+
+
+1. dependency
+2. association ( aggregation and composition)
+3. inheritance.
+
+most important boss. interfaces.
+
+RElationship  between classes.
+1. loose  = dependancy
+2. moderate  == association ( aggregation, composition)
+3. tight.  == inheritance.
+
+
+1.we have multiple classes.
+
+what is dependency...
+
+1. you have two classes A and B.. there is need for using 
+B inside some function of A.
+
+class A
+{
+public void f1(B obj)   { }
+
+}
+
+class B
+{
+
+}
+A= We
+B =Electrician
+f1 = electrical works.
+A depends on B for the function f1.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local is only with respect to function
+
+class A  --Association... Composition
+ B obj; 
+
+class B
+
+
+
+int main()
+{
+	A obj;
+	
+}
+
+we see two classes.
+is obj of class B, local in class A.. 
+to tell dependency
+
+
+______1	 depends on 2 for the function 3.
+
+
+
+Association.  -- most commonly used relationship --superset..
+1. composition
+2.aggregation.
+
+whole, part..there are multiple functions in the whole
+which depend on the part..
+
+class A
+private:
+	B *obj;
+public:
+	void putBinA(B *temp)	
+	{
+		obj =temp;
+	}
+	
+	f1()
+	f2()
+	f3()
+
+class B
+	...
+
+f1, f2 and f3 of class A need the same B object ...
+A= Mobile
+B = sim
+f1  --make calls
+f2	 --receivecalls
+f3 --send sms
+
+
+1. identify association, then categorize it as aggregation or composition.
+I only know associaton==ghost..
+
+class Mobile
+private:
+	Battery b;
+	Sim &sim;
+public:	
+	putSim(Sim &sim) { this->sim =sim; }
+	void make Call(void);
+	void sendCall(void);
+	void sendSms(void);
+
+
+Inheritance..
+
+hierarchy making requires lot of intelligence..
+
+
+Intent of making a hierarchy to generalize things..
+
+
+HVAC system
+Sensors -- Coil, ambienttemparture.. IQ, wired or wirless
+Subsystems
+Heating system
+cooling systems.
+
+
+
+
+
+English will look good but code will look pathetic if we donnt have
+clear theory...
+
+
+
+
+
+
+
+
+1 is associated with 2 via 3
+1 Mobile
+2 Battery
+3 -- composition.
+hierarchy
+
+there are multiple classes.
+
+class X
+
+class Y
+
+I want to use inheritance.. stop.. first answer some questions.
+which is your super class    --X  == MobilePhone  --BAse class
+which is your subclass  --Y  ==SmartPhone,FeaturePhone  --Derivedclss
+
+put a test 
+take subclass "is a" super class read it two times.
+SmartPhone is  MobilePhone
+
+
+EKA =English kidnapping agents..
+
+There is a student, he is in library he needs to access all the features
+of the library..
+so let us library as asuper class, student as subclass so thatstudent can ccess all featues of the library..
+
+which one is derived class or subclass =Student
+which one is your base class or super class === Library
+
+
+Student is a Library..
+
+1. put a "is a" test no skipping.
+2. the super class and subclass ie base class and derived
+class need to have some non static variables it is not worth
+calling them as base class or derived class.
+3. knowing that designing super class needs lot of effort.
+
+
+both super class and sub
+ classes needs to be a datatype.
+
+
+check list.
+
+1. is a test.
+2. variables in base class and derived class.
+3. functions in base class and derived class
+4. create an object of derived class
+and call some functions of base class and some functions
+of derived class.
+
+class A:public B --this is inheritance
+prove B is a data type..
+
+
+
+
+class A:private B  --this is not inheritance in c++
+
+
+
+
+
+
+
+we have base class function --base class data type
+we have derived class functions ==derived class is also data type
+we have an object of the derive class 
+
+inside the derived class object.
+there will be variables of base class +variables of derived
+class
+
+we have a derived class object.
+inside the object we have variable
+how will you change or read the variables.
+only thru the functions of base class or derived class.
+
+once you get hierarchy.
+one day...new feature can be added in the base class.
+no need to change any derived classes.
+all the derived class object can access the new
+feature added in the base class.
+
+class base 
+	follows encapsulation.--private varibles, public functins
+
+class derived :private based  .//it is no longer inheritance..
+
+why..
+derived class object now cannot access base class functions...
+	
+class B1
+   Derived d1;
+   variables
+    f1()  { D } 
+
+class B2
+
+
+class DErived1:public B1
+	f3
+
+class dErived2 :public B1
+	f4
+
+
+Derived d1;
+d1.f1();
+
+
+int i =3;
+char *c = &i;
+
+
+class Person
+   atHome()  {  controlTraffic();}
+
+
+
+class Police :pubic Person
+   controlTraffic()
+	
+
+Police *p = police object
+Person *x = police object.
+
+
+
+
+
+
+
+
+
+
+
+
+big small problem
+
+in overenthusiasm to under concept forget collaboration.
+who wrote super class I
+who wrote subclass class I
+welcome to illness.
+what is runtime polymorphism.
+
+
+1. runtime  == I dont know which object I am getting.
+2. polymorphism.  == function that gets called depending
+on type of object you get..  == overriding.
+
+CEO == behavior depending on context..
+
+ok in code what does it mean.
+
+1.overriding.
+
+a base class owner. look at a function of the base class.
+and tells I think this function should be part of logic
+but how it is done could depend on the hierarchy...
+
+this function can be written by the derived class owner
+and new meaning given function signature cannot change
+but body can change..
+
+once you do overriding
+derived class object will now no longer access
+the base class function .
+
+2. you dont know which object you will get..
+
+base class *ptr = can assigned with any derived class bject.
+
+Window *w = new string("hello");
+
+
+
+
+
+person X has written
+public void f1(Window *w)
+{
+	w->copy();
+
+}
+
+person Y caller of f1.
+f2()
+{
+    Paintbrush pw;
+    f1(&pw);
+
+}
+
+
+from a base class function I want to access a derived
+class function need ==100% it will runtime polymorphism
+
+
+
+
+
+
+class A 
+virtual f1
+f2
+
+
+class B:public A
+f1
+f3
+
+during runtime polymorphism
+
+A *obj =new B;
+obj can access f2 of class A and f1 of class B but
+never f3 of class B
+
+without runtime polymorphism
+B *obj =new B;
+obj can access f2 of class A, f1 of clss B, f3 of class B.
+
+base class pointer when pointing to a derived class object
+cannot access exclusive functions of derived class.
+no during some circumstance i want to access only
+ok you can do it, but be super carefull..
+
+RTTI
+expand RunTime Type Identification.
+
+what is it
+1. show me runtime polymorphism, I cannot show ok you dont
+need RTTI.
+2. we have a base class ptr pointing to a deried class object.
+3. no ability to access exclusive function of derived class
+4. create a new derived class ptr and cast your base class ptr to derived class ptr.
+5. how to know what object the base class ptr is pointing to.
+6. use RTTI.
+7. syntax in c++ is dynamic cast..
+8. if object is not correct you will get nul.l..
+9. abstract class.
+1. it must be a base class.
+2. you cannot create object of it because it does not make
+sense..
+
+in C++ to tell something is an abstract class we have
+to write pure virtual function
+abstract function.
+
+1. abstract function must be overridden in the derived class.
+pure virtual function
+2. virtual function may be overridden.
+3. a function which is not virtual, should not be overridden
+nO i will override, ok improve typing enjoy the fun..
+
+
+
+I will write a base class.
+
+
+1.  prove me it is a class.
+2. think which function is virtual, pure virtual , none of the above.
+3. have a "opinion" how your derived classes will use your function.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
