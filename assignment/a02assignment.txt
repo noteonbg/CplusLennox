@@ -164,7 +164,7 @@ for the class ThermoStat.
 [2] shold result in getting the desiredTemperature
 == , < and > are based on comparing desiredTemperature.
 
-program 8
+program 9
 
 1. come with own examples on inheritance ,
 aggregation and composition, 
