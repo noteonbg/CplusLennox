@@ -11,11 +11,12 @@ class Window
         virtual void copy();
         virtual void whatshouldappear()=0;
         virtual ~Window()=default;
-        
-    
+
+    protected:    
+    int windowId;
+
     private:
-        int windowId;
-        int iconType;
+                int iconType;
 };
 
 
@@ -45,7 +46,7 @@ int Window::getWindowId(){
 }
 
 
-class PaintWindow :public Window
+class PaintWindow :protected Window
 {
     public:
     
@@ -67,6 +68,8 @@ void PaintWindow::copy()
 
 
 void PaintWindow::setGraphicsView(int x){
+
+    
     graphicsMode =x;
     
     
@@ -82,6 +85,7 @@ class CalcWindow:public Window
         void setTypeofCalculator(int x);
         int getTypeOfCalculator();
         void copy();
+        void whatshouldappear();
     
     private:
         int typeOfCalculator;
@@ -99,6 +103,10 @@ void CalcWindow::setTypeofCalculator(int x){ typeOfCalculator =x; }
         int CalcWindow::getTypeOfCalculator(){ return typeOfCalculator; }
 
 
+void CalcWindow::whatshouldappear()
+{
+    
+    std::cout<< "somebuttons of calculator";
 
 
 
@@ -108,7 +116,7 @@ void CalcWindow::setTypeofCalculator(int x){ typeOfCalculator =x; }
 
 
 
-#if 0
+#if 1
 int main()
 {
     CalcWindow calcWindow;
@@ -136,17 +144,38 @@ int main()
 //person Y logic
 void proofOfRuntimePOlymoprhism(Window *w)
 {
-    w->copy();
+    w->copy();  //runtime polymorphism
+    w->setIconType(3);//this line is not
+
+    // I want to access the calculator window 
+    //gettype of calculator.
+
+  //  sign of less stupidness no theory
+  CalcWindow *cw = dynamic_cast<CalcWindow*>(w);
+  if(cw != nullptr)
+  {
+  cw->getTypeOfCalculator();
+}
+
 
 }
 
 //person X logic
 int main()
 {
-    Window *w=nullptr;
-    w= ?;
+
+    
+    Window *w=new Window;
+    proofOfRuntimePOlymoprhism(w);
+
+    /*
+    w= f1();
     w->setIconType(1);
     w->copy();// this is runtime polymorphism.
+    */
+
+
+
 
     // below line first check whther w points to PaintWindow
     //or not aand if its points to PaintWindow only then

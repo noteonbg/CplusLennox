@@ -166,8 +166,16 @@ for the class ThermoStat.
 
 program 8
 
-1. come with own examples on inheritance , interface,
-aggregation and composition, come with the examples
+1. come with own examples on inheritance ,
+aggregation and composition, 
+
+2. take a05inheritance.cpp understand the
+program and make it works
+implement the runtime polymorphism scenario
+and rtti scenario.
+
+
+come with the examples
 on concept of open closed principle. lishov substitutability
 principle , interface segregation principle. and dependancy
 injection.

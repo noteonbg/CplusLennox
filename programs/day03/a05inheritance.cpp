@@ -6,6 +6,8 @@
 
 class HVACSystem {
 public:
+    void senddiag
+    void getConnectedToNetwork()  {  }
     HVACSystem(const std::string& name) : systemName(name) {}
     virtual ~HVACSystem() {}
 
