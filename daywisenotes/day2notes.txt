@@ -73,7 +73,212 @@ I  -- kids know how to make rules and they will everyday 10 ruleswhich nobody wi
 D   -- like local variables when you have a doubt.
 principles
 
-we will take a break till 11.15AM.
+
+
+
+collect some examples..
+
+Array telescope datastructures.
+
+
+1. being real, people who tell I like datastructues dont mean it.
+
+intent : can I use it in project and not can i tell other people i know it.
+
+
+what is practical.
+what is datastructure..
+1. group of things.
+2. you have some operations in mind.
+3. you pick one from a given library.
+
+coming to 3, when 2 is not clear is sin.
+
+Broad categorization of DS
+1. normal notebook  -- linear ds ( array. linkedlist... )
+2. indexed notebook --non liner ds ( graph... tree, set .. map...)
+
+
+when in doubt stick with an array.
+array especially in C and c++ can create non stop misery so use
+better version of array std::array( size is fixed ) or std::vector(size
+can change)...
+
+any DS
+1. we decide on opertions first.
+2. we pick one from the library
+3. we respect other person design.
+
+content of ds does not matter, because datastructure operations
+are not decided on content of the ds
+
+[] array in c++ in 2024, it is a problem...generally preferred std::array
+
+array
+1. ideally should its size..
+
+what are commonly used operations on the array.
+1. fill up array
+2. iterate thru the array
+3. in some freak cases sort the array.
+4. occasionally search the array.
+5. delete an element in the array.. 
+6. i want to inert inbetween
+
+new and delete.
+welcome to scary world of heap.
+new allocates memory on heap
+delete will deallocate memory from the heap
+
+
+int *p =new int;
+X *P =new X;
+
+//new will call the constructor..
+
+new is an operator.. once we know topic operator we can overload
+new...
+
+
+int *p =new int;
+new int is on heap
+p is non on heap..
+
+zoom out,both new and delete are bad options for us to use in c++
+for last 20 years.. we use this jargon called smart pointers.
+sharedpointer, uniqueptr, weakptr... main theme dont use the word
+new or delete these wrappers will take care of allocating and deallocating.
+to understand these ptrs knowing operator overloading will help.
+
+
+
+1. array usage ... ok.. remember std::array exists, if you need
+an array.
+
+2. new and delete what it does.. dont use this directly.
+what is option smart pointers..
+
+3. new will call the constructor...
+delete will call the constructor..
+
+4. references.. if you class is a data type.. reference for int
+or refernce or hvacdevice does not matter.
+
+int i =3;
+int &k =i;
+k=4;
+
+
+Thermostatat i(2,3,4,4) ;
+Thermostat &k =i;
+k.setminimumtemp..(44);
+i.getminimumtermpo
+
+
+
+encapsulation.
+1. access variables via functions..
+
+worst way of understanding encapsulation
+hiding data.
+
+
+reference... and pointers.
+1. creating and operation in place X or function X
+2. assignment in place Y or function Y
+if we violate this rule it  means ...
+
+
+int &x=k;  // we are creating a alias..
+i have created a reference.
+
+reference is c++ way of telling dont touch pointers until you have
+dynamic allocation.
+earlier we used to request compilers hey if you like try to figure
+this out at compile time.
+
+now you have some direction..
+1. can you determine something at compile time...
+2. if yes, compiler will try to generate the value at compile time.
+
+
+
+
+in c++ we can use constexpr.
+what it does.
+we are telling resolve this at compile time itself 
+
+
+constexpr... evaluate things at compile time.
+functions, variables..
+1. use a function with constexpr and use a function without constexpr
+measure time..
+2. collect exmples on constexpr... to become familiar with syntax.
+3. in code base start looking for constexpr...
+
+Copy constructor appears in c++... because the compiler by default
+does something which may not be ok for us in some circumstances..
+
+void f1(X obj2)
+{
+	print obj2.y and obj2.z ... it will print 3,4
+}
+
+
+class X
+	
+{
+	
+	int *y;  X(){ y =new int }
+	~X()  { delete y; } 
+	int z;
+
+};
+
+X obj1;// copy of y and z present inside obj1
+obj1.y =3;
+obj1.z=4
+devil starts
+X obj2 = obj1;//small devil
+f1(obj1);
+
+
+
+dont write your own copy constructor based on assumptions..
+
+
+1. know what copy constructor is.
+2. know compiler provides you a copy constructor.
+3. we have dynamic allocation for one of the content of the class.
+4. we have a destructor... 
+5. ok we are going to get a problem and copy cosntrutor has to written
+by us relax and collect data first dont assume..
+
+what to do.
+
+1. from the GitHub look at assignment\assignment2.txt
+try the program 5, program 7 and then program 4.
+
+--------------------------------------
+
+iteration..
+
+Friend functions
+
+1. we must have a class which is a data type
+2. this class can tell some function is my friend.
+3. this function can access all scopes in the class, private, public, protected
+
+
+
+
+
+
+void f1(int x)  //caller is assinging
+{
+	
+
+}
 
 
 
@@ -82,14 +287,192 @@ we will take a break till 11.15AM.
 
 
 
+class Process
+{
+
+class Thread
+{
+	friend void f1();
+}
+
+}
+
+f1 is friend of Thread and not of Process.
+
+static class members.
+
+1. we are inside a class.
+2. we have made some variable or function static.
+3. variable being made static inside the class
+3.1 this variable is independent of all objects, when no objects
+this variable still deserves to be alive..
+3.2 the static variable is available without object , all objects
+of the class share the same copy of the static variable.
+how to access a static variable.
+ classname::variablename =3;
 
 
 
 
 
 
+static 
+where do you see.
+1. local variable  -- local variale which is alive for long period
+2. global variable.  -- local variable which cannot be accessed outsidethe file
+
+3. variable inside the class which is outside functions but inside the class.
+without object the variable will exist
+objects can access it.
+without object you can access it.
+
+static function
+1. static function outside class.
+function is restricted to file..
+
+2. static function inside class.
+classnamne::functionname and access it
+it can access static variables
+it cannot access non static variables directly.
+
+3. non static functions in the class
+can access everything in the class.
 
 
+
+
+
+
+I want to access X in the class?
+
+do you know what is X? yes i know it is a function.
+X is public or not? yes..
+what is X , static or non static.
+non static
+ok create a variable  of X
+variable.->X();
+
+if it static
+classname::X();
+
+1. we are inside a class.
+2. we have a non static function.
+3. we dont want this non static to change any of the content of the class.
+make non static function const.
+4. inside the const functions. call other const functions
+
+1. const function is independent
+2. reference.
+
+class A
+{
+
+A()=default;
+A(const A &)=delete
+A(int i) {} //
+
+
+}
+compiler by default provides me a no argument constructor
+A obj;  //compilation error
+
+
+mutable.
+1. you have a class.
+2. you have content in the class.
+3. we have a const function
+4. if you want some variable content in the class to be changed
+inside a const function also then think of mutable.
+
+
+when we do class design
+constructors are part of it.
+
+
+As a owner of the class, if you want to tell
+hey user of the class, I will not allow you to create objects
+instead whenever you need an object ask me i will give you one...
+that means constructor become private and some static function
+is provided in the class calling which user will get an object of the class.
+
+constructors as mechanism for owner of the class to control how object
+is created for the user of the class.
+factory, singleton...
+
+rule of 3
+default constructor
+copy constructor
+overloaded assignment operator.
+
+rule of 5
+default constructor
+copy constructor
+overloaded assignment operator.
+move constructor
+move overloaded assignment operator.
+
+
+
+1. static variable and function inside the class.
+2. const functions , const object..
+
+
+
+
+
+Operator overloading..
+
+
+what is it.
+
+1. you must have a class you have your data type.
+2. existing operator.
+3. compiler does not know if you use existing operator with your data type
+what to do.
+4. teach by defining a function. the compiler will now call this function.
+this is called as operator overloading.
+
+what is difficult thing.
+1. justyfing your need for operator overloading.
+
+
+ThermoStat t1;
+
+t1=44.44;
+
+
+
+during operator overloading.
+
+1. we cannot change the number of operands an operator takes.
+2. some operators must be defined as member functions only...
+3. most operator overloading functions can be written either
+as member function or as global functions..
+
+=   change the operand, owner of the class can decide
+== this will not
+
+
+
+SharedPtr p;
+p->x=3;
+
+Vector v1;
+v1[0]="hello";
+
+when you do operator overloading
+1. the number of arguments can never change.
+but type of arguments can change== 
+
+string s1;
+s1+s2;
+
+class
+1. content
+2. operations
+3. constructor design
+4. destructor
+5. operator overloading..
 
 
 

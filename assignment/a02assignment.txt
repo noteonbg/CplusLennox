@@ -152,6 +152,36 @@ and measure time with constexpr..
 2. copy constexpr examples in the code. and look
 for codebase...
 
+--------------------------------------------
+
+
+program 8
+
+1. overload the operator = and [] and >, == and < operator
+for the class ThermoStat.
+= should assign all the content into the assigned object.
+[1] should result in getting the currentTemperature
+[2] shold result in getting the desiredTemperature
+== , < and > are based on comparing desiredTemperature.
+
+program 8
+
+1. come with own examples on inheritance , interface,
+aggregation and composition, come with the examples
+on concept of open closed principle. lishov substitutability
+principle , interface segregation principle. and dependancy
+injection.
+
+program 9
+convert program 4 to use std::array.
+
+
+
+
+
+
+
+
 
 
 
