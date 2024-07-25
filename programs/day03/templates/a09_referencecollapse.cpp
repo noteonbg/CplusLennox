@@ -10,8 +10,6 @@ void process(int&& value) {
     std::cout << "Processing rvalue reference: " << value << '\n';
 }
 
-
-
 int main()
 {
     int k=4;
@@ -63,7 +61,7 @@ int main() {
 
 
 #endif
-#if 1
+#if 0
 
 #include <iostream>
 #include <utility>
@@ -97,7 +95,7 @@ void forward_example(T& value) {
 #endif
 
 
-#if 1
+#if 0
 template<typename T>
 void forward_example(T&& value) {
     process(std::forward<T>(value));
@@ -108,9 +106,7 @@ void forward_example(T&& value) {
 int main() {
     int x = 42;
     forward_example<int&>(x);       // lvalue reference
-    forward_example<int&&>(123);
-    
-         // rvalue reference
+    forward_example<int&&>(123);     // rvalue reference
      //forward_example(std::move(x)); // rvalue reference
 
      

@@ -18,6 +18,8 @@ int main() {
         currentState = State::Processing;
     };
 
+
+
     auto finishProcessing = [&currentState]() {
         std::cout << "Processing completed." << std::endl;
         currentState = State::Completed;

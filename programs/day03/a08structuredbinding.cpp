@@ -1,18 +1,40 @@
-#if 0
+#if 1
 
 #include <iostream>
 #include <tuple>
 
 // Example struct
 struct Point {
+
+private:
     int x;
     int y;
 };
 
-int main() {
+int main()
+{
+
+
+    std::tuple<int, double, std::string> myTuple = 
+    {42, 3.14, "hello"};
+    std::get<0>(myTuple)=89;
+    std::cout << std::get<0>(myTuple);
+
+
+}
+
+int main1() {
     // Example 1: Structured binding for a tuple
-    std::tuple<int, double, std::string> myTuple = {42, 3.14, "hello"};
-    auto [a, b, c] = myTuple;
+    std::tuple<int, double, std::string> myTuple = 
+    {42, 3.14, "hello"};
+
+
+
+
+    auto [a, b,c] = myTuple;
+    
+    
+    
     std::cout << "Tuple elements: " << a << ", " << b << ", " << c << "\n";
 
     // Example 2: Structured binding for a struct
@@ -27,7 +49,7 @@ int main() {
 
 #endif
 
-#if 1
+#if 0
 
 #include <iostream>
 #include <utility> // for std::pair

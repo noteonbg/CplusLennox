@@ -1,8 +1,36 @@
 #include <iostream>
 #include <iomanip>
 
+//template creation
+template <class T,class Z>
 
-#if 1
+// Z should be.. arithmetic type only
+//Z should be copyable, Z should not movable..
+class X
+{
+    private:
+        mutable T x;
+    public:
+        void setX(T z) { x = z;}
+        T getX() const { return x;}
+
+
+};
+
+int main()
+{
+    X<int> obj;  //template instnatitation
+    X<char> obj1;
+
+
+
+}
+
+
+
+
+
+#if 0
 // Medical domain namespace
 namespace MedicalDomain {
 
@@ -18,6 +46,8 @@ namespace MedicalDomain {
 }  // End of namespace MedicalDomain
 
 int main() {
+
+    //instntiating the template.
 
     char c = MedicalDomain::calculateBMI<char>('a','b'); // template is instantiated.
     double d = MedicalDomain::calculateBMI<double>(2.3,4.4);

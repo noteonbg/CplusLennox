@@ -39,6 +39,8 @@ int main()
       return a.make < b.make;
   });
 
+  
+
   std::cout << "Comparisons: " << comparisons << '\n';
 
   for (const auto& car : cars)

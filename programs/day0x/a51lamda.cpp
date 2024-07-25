@@ -17,20 +17,12 @@ int main(){
 
    
    int victim =2;
-   auto func = [victim](){
+   auto func = [victim](2,3){
       std::cout << "Hello World!" <<victim<<  std::endl;
       
    };
-   
 
-
-
-
-
-
-
-
-   func();
+  func();
 
 
 
@@ -45,6 +37,9 @@ int main(){
     [](){
        std::cout << "Hello World!" << std::endl;
     }();
+
+
+
   
 
     //Lambda function that takes parameters
@@ -53,6 +48,18 @@ int main(){
     [](double a, double b){
        std::cout << "a + b : " << (a + b)  << std::endl;
     }(10.0,50.0);
+
+
+
+
+
+
+
+
+
+
+
+    
     
    /*
     auto func1 = [](double a, double b){

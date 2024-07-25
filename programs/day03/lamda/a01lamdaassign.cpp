@@ -1,6 +1,6 @@
 
 
-#if 0
+#if 1
 
 #include <vector>
 #include <algorithm>
@@ -13,10 +13,12 @@ struct Component {
 int main() {
     std::vector<Component> components;
     // Populate components vector...
-
+    int k=3;
+    int v =44;
     // Filter components based on a condition using a lambda expression
-    auto filtered_components = std::remove_if(components.begin(), components.end(),
-        [](const Component& comp) {
+    auto filtered_components = 
+    std::remove_if(components.begin(), components.end(),
+        [k,v](const Component& comp) {
             return comp.name == "unwanted";
         });
 

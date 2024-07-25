@@ -455,6 +455,105 @@ I will write a base class.
 
 
 
+constructor and destructor behavior during inheritance.
+
+1. how does constructor and destructor behave for
+ derived class object.
+
+2. constructor... first call base class constructor and then
+call derived class constructor.
+
+
+3. for destructor , destroy derived and then destroy base.
+
+parametrized constructors in base class.
+this will never called imlicitly during derived class object creation
+we should call it explicitly
+
+
+need for virtual destructor.
+
+1. we have a virtual function in the base class.
+2. we have runtime polymorphism.
+3. that means we have base class ptr.
+4. ptr is there dynamic allocation may be  there.
+
+
+1. class 
+2. relationship between classes.
+3. some idea regrding namespace
+4. important boss interface..
+
+
+what is an interface..?
+it is away thru which we create  standard or a contract.
+
+intent ..?
+
+standard only way to use a standard is by using a product which complies
+with the standard.
+
+product
+
+what createa  standard or interface
+
+abstraction...
+
+1. i know what function does.
+2. how it does I dont care.
+
+we should know how things work here in detail.
+
+C++ 
+how to create an interface.
+
+creae a class and fill it up with pure virtual functions only.
+and nothing else I need something else ok write one virtual destructor.
+
+class IC
+{
+virtual void sendData()=0;
+
+};
+
+class Wifi:public IC //Wifi is a product which adhers to the IC standad.
+{
+public :
+ void sendData() {  }
+
+}
+
+class LanCAble:public IC
+{
+public :
+ void sendData() {  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+class UserOfStandard//1
+{
+
+	public void f1()
+	{
+
+		IC *temp = f1();
+		temp.sendData();
+
+	}
+
+
+}
+
 
 
 
