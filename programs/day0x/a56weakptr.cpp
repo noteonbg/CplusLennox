@@ -16,7 +16,8 @@ public:
 
 int main() {
     // Create a shared_ptr to a Parent object
-    std::shared_ptr<Parent> parentSharedPtr = std::make_shared<Parent>();
+    std::shared_ptr<Parent> parentSharedPtr = 
+    std::make_shared<Parent>();
 
     // Create a Child object
     Child child;

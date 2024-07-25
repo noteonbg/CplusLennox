@@ -1,0 +1,387 @@
+Multiple inheritance
+
+1. a derived class having two immediate base classes. 
+2. class A:public B, C  --first prove this is multiple inheritance.
+
+
+B may be a class
+C may be an interface in c++
+class A
+  public:
+	int a1;
+
+class B:virtual public A
+	int a2
+	this
+
+class C:virtual public A
+	int a3
+	this
+
+class D:public B, C
+	int a4
+         f1()  --this
+
+D obj;  
+
+vtable... array of function pointers..
+
+
+
+class A:   B
+The moment we change ? to anything other than public
+inheritance is dead because A class object will not able to access
+functions of the B class directl.
+
+
+A obj;
+obj.BFunc();
+
+
+
+class A
+{
+	protected :
+	int i;
+
+}
+class B:public A
+{
+public :
+	void freak() { i =4; }
+
+}
+
+main
+B obj;
+obj.i;
+
+static_cast  --go to instead of c
+dynamic cast  - only if you in polymorphic scenarios
+const_cast  -- avoid it, to remove the constness of the object
+or reference.. we use constcast.. why avoid it.. explore mutable..
+
+reinterpret_cast  -- once in 200 years..
+
+
+struct Device d;
+char *c =(char*)(&d);
+
+structured bindings is a c++ feature
+you can move from object to variables in a easy way..
+
+you have move data from object to individual variables..
+
+
+auto means telling the compiler hey you deduce the data type.
+
+
+
+templates.
+
+1. templates are data type independent way of writing functions
+or classes or variables.. --functions and classes.
+
+functions .. data type of input argument function can be made anything.
+classes - content of the class is data type independent.
+
+jargon == meta programming.
+
+if you have a data type choice what you want template to stick to
+we can enforce it...
+
+1. when you see template.
+
+1.1 is it a function 
+1.2 is it a class.
+1.3 when you see any template function or class, understand it is a group
+of now depending on how we instantiate the template
+1.4 we can put some conditions on the data type... ok we can put
+it type traits...
+1.5 perfect forwarding..
+
+templatized class
+class A
+{
+content .. which is not templatized
+
+public:
+	 functions needs to be templatized
+
+
+
+template function ( we have data type called X obj)
+{
+
+	 return obj;
+
+}
+
+1. template is resolved at compile time.
+2. template means think of a group.
+
+
+perfect forwarding..
+1. we have a templatized function.
+2. which can take rreference or lreference.
+3. how to ensure the template ,recognizes rreferene as reference
+and lreference as lreference is called perfect forwarding
+
+templates.
+1. data type independent functions or classes.
+2. perfect forwarding..
+3. template specialization..
+4. remember templates is all at compile time.
+5. compiler will make copies based on how we are using it.
+6. remember you can apply constraints on the data type
+7. variable number of arguments for templates possible.
+8. consider looking at decltype.. what it does, declvalue what it does..
+
+
+
+Lamda.
+1. creating a function at point of need.
+2. what does lamda do usually
+2.1 create function and assign function together
+3. technically when we should use lamda.. when you want to capture
+the state..
+i want function with state... 
+
+
+
+
+
+
+
+
+template<typename x, typename y>
+auto f1(X v1, Y v2) ->decltype(x+y)
+{
+return v1+v2;
+
+}
+
+
+
+STL
+
+1. containers --DS 
+2. algorithms  -- functions copy, find, sort, ...
+3. iterators  -- ability to run ..
+all of these are templatized.
+
+
+
+what does Lamda do
+
+1. create a class
+2. create a function which a crazy name.
+3. create an object and treat this object as afunction.
+==Functor.
+
+Class Design principles.
+excel sheet..
+UML...
+remaining topics, 
+ritual exam
+
+
+0. we have to iterate
+1. we have problem statement.
+2. excel sheet  --overall view on architecture.
+3. apply class design principles now.  -- class design is ok..
+4. think in terms of applying design patterns.  -- generalize scenarios
+5. review..
+
+
+
+
+class design principles..
+
+S
+1. single responsibility principle..
+a class should do only one job..
+
+O  program to an interface...which every is important
+write a interface then write a class.
+interface called X, i have a class Y which is realization of X.
+dont change Y.. come new Z which implements X.
+
+L - Liskhov substitubability , it applies only if you have hierarchy.
+slow down when you design super class. think what will be the virtual
+fucntions in it.
+
+
+I == when you design interfaces ensure you put minimum methods in it.
+design small interfaces than a big interface than hundred method in it.
+what is small == undefined.
+
+interface musicmobile
+1. transfer music
+2. play music
+3. make calls
+4. receieve calls.
+5. send sms
+
+
+interface music
+1. transfer music
+2. play music
+
+
+interface mobile
+3. make calls
+4. receieve calls.
+5. send sms
+
+interface musicmobile:public mobile, music
+
+class XBrand:public musicmobile
+
+
+D
+
+
+class A
+
+{
+
+public void f1(B obj) // dependency.
+
+}
+
+if f1 is called by framework or by somebody it means he needs to provideboth A and B..
+that means injection there is now.
+
+
+
+interface MonitorDevice
+
+
+
+MobileCall1.:public 
+1 send'
+2. receive
+2. hwo long it is talking
+
+
+TimerManagment.
+1. if call is going two long..it should take some action..
+
+
+
+TimerManagement.
+{
+monitorMobile(
+
+
+
+}
+
+
+
+
+
+proof knowing architecture
+for a given scenario
+
+1. entry 
+
+flow
+3. exit point.
+consistant
+
+
+
+
+
+
+
+
+
+
+
+
+UML ... how intent kills process.
+but people can kill it by keeping it vague..
+class diagram  --X
+sequence diagram  --Y
+
+Y will convince us whether X is doing the job or not.
+X will tell us structure of the class design..
+
+can we consistant and detailed in terms of usage.
+
+
+
+Smart pointers.
+1. shared ptr.
+2. unique ptr
+3. weak ptr..
+
+
+shared_ptr,unique_ptr what is it data types..
+what is advantage, no need of dealocting memory
+
+what all operations.
+X is my type
+shared ptr or uniqueptr acts likea  cover for my X as far heap usage.
+using shared ptr or unique ptr i want to access operations onX.
+we can do it because of operator overloading..
+I want my X from shared ptr or unique ptr, usually not preferred..
+get..
+
+
+
+class A
+
+	struct P*;
+
+	f1
+	{	
+		B obj;
+                p=new something();
+		obj.f2(move unique pointer);
+make unique ptr... and wrap p inside it
+
+	}
+
+
+class B
+	f2
+	   do something
+	deallocate p
+
+
+
+
+
+
+weakptr is used only if you have cyclic dependancie.
+
+threads
+1. do you need threads justify first..
+2. what job the thread will do.
+3. do you want to interrupt the thread..
+4. if two threads are accessing non sharable resource, what do you 
+want to do..
+5. do you want just be ok with asych operation..
+
+start a thred allow it to do a job that is it.
+
+
+vasu.lv@gmail.com
+9945276588
+
+
+
+
+
+
+
+
+
+
+
+
+

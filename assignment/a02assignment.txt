@@ -187,15 +187,17 @@ convert program 4 to use std::array.
 
 day 4.
 
-1. collect examples on
+program 10
+
+. collect examples on
  observer , strategy, template, proxy patterns
 
-2. collect an example on perfect forwarding.
+ collect an example on perfect forwarding.
 
-3. look at the code sample present in. day0x
+. look at the code sample present in. day0x
 folder especially vector, set and mapexample.cpp
 
-4. see whether runtime polymorphism can be done by using
+. see whether runtime polymorphism can be done by using
 templates.
 
 

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <memory> // Include the <memory> header for unique_ptr
 
-#if 1
+#if 0
 class A
 {
     private:
@@ -23,6 +23,7 @@ class A
 
 }
 
+#endif
 
 #if 0
 struct B

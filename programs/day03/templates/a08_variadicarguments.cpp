@@ -20,7 +20,7 @@ int main() {
 
 #endif
 
-#if 0
+#if 1
 // the sum of all arguments using a binary right fold with the addition operator (+):
 #include <iostream>
 
