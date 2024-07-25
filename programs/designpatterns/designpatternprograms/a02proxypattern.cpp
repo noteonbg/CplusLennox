@@ -14,7 +14,7 @@ functionalities such as logging and access control.
 
 */
 
-#if 0
+#if 1
 
 #include <iostream>
 

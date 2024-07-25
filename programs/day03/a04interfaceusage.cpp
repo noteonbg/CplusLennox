@@ -12,6 +12,8 @@ public:
     virtual bool isCooling() const = 0;
 };
 
+
+
 #endif // THERMOSTAT_H
 
 // BasicThermostat.h
@@ -29,9 +31,15 @@ private:
 
 public:
     BasicThermostat(float initialTemperature)
-        : currentTemperature(initialTemperature), desiredTemperature(initialTemperature), heating(false), cooling(false) {}
+        : currentTemperature(initialTemperature),
+         desiredTemperature(initialTemperature), heating(false), cooling(false) {}
 
-    float getCurrentTemperature() const override {
+    void freakfrombase() override
+    {
+
+    }
+
+    float getCurrentTemperature() const override  {
         return currentTemperature;
     }
 

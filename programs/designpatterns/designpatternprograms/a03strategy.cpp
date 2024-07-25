@@ -12,7 +12,7 @@ We have an HVAC system that can operate in different modes, such as energy-savin
 */
 
 
-#if 0
+#if 1
 class TemperatureControlStrategy {
 public:
     virtual void execute(float currentTemperature) = 0;

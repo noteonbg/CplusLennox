@@ -25,6 +25,39 @@ public:
 #include <vector>
 #include <algorithm>
 
+class HVACSystemAnother : public HVACSubject {
+private:
+    HVACObserver* observer;
+    float temperature;
+
+public:
+    HVACSystemAnother() : temperature(0.0f) {}
+
+    void attach(HVACObserver* observer) override {
+        this->observer=observer;
+    }
+
+    void detach(HVACObserver* observer) override {
+        this->observer=nullptr;
+    }
+
+    void notify() override {
+         {
+            observer->update(temperature);
+        
+    }
+
+    void setTemperature(float newTemperature) {
+        temperature = newTemperature;
+        notify();
+    }
+
+    float getTemperature() const {
+        return temperature;
+    }
+};
+
+
 // a real class where event occurs
 
 class HVACSystem : public HVACSubject {

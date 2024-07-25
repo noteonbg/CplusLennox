@@ -165,10 +165,10 @@ for the class ThermoStat.
 == , < and > are based on comparing desiredTemperature.
 
 program 9
-
 1. come with own examples on inheritance ,
 aggregation and composition, 
 
+file present in day03 folder.
 2. take a05inheritance.cpp understand the
 program and make it works
 implement the runtime polymorphism scenario
@@ -182,6 +182,18 @@ injection.
 
 program 9
 convert program 4 to use std::array.
+
+-----------------------------------------------------------
+
+day 4.
+
+1. collect examples on
+ observer , strategy, template, proxy patterns
+ 
+ ---------------------------------------------------------
+ 
+ 
+
 
 
 

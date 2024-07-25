@@ -1,0 +1,94 @@
+1. Use extern "C" for C Functions
+
+extern "C" {
+    #include "my_c_library.h"
+}
+
+
+2. Use a Consistent Header File Strategy
+Create C header files (.h files) for your C functions.
+Use extern "C" in the C++ code that includes these headers.
+
+#ifndef MY_C_LIBRARY_H
+#define MY_C_LIBRARY_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void my_c_function();
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // MY_C_LIBRARY_H
+
+
+3. 
+
+3. Linker Settings
+When linking C and C++ object files, ensure the correct linker
+settings are used. Typically, C++ compilers can link C object files, 
+but you need to ensure the correct libraries are linked.
+
+
+4. Avoid Name Collisions
+C++ has namespaces, but C does not. Be careful to avoid name collisions by using unique names for functions, variables, and other identifiers. If necessary, use prefixes to distinguish between C and C++ identifiers.
+
+
+
+5. Use Wrappers for C++ Classes
+If you need to use C++ classes in C code, create wrapper functions in C++ that provide a C interface to the classes. These wrapper functions can create, manipulate, and destroy instances of the C++ classes.
+#ifndef MY_CLASS_WRAPPER_H
+#define MY_CLASS_WRAPPER_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+typedef struct MyClassWrapper MyClassWrapper;
+
+MyClassWrapper* my_class_create();
+void my_class_destroy(MyClassWrapper* obj);
+void my_class_do_something(MyClassWrapper* obj);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // MY_CLASS_WRAPPER_H
+
+
+
+#include "my_class_wrapper.h"
+#include "MyClass.h"
+
+struct MyClassWrapper {
+    MyClass* instance;
+};
+
+MyClassWrapper* my_class_create() {
+    return new MyClassWrapper{new MyClass()};
+}
+
+void my_class_destroy(MyClassWrapper* obj) {
+    delete obj->instance;
+    delete obj;
+}
+
+void my_class_do_something(MyClassWrapper* obj) {
+    obj->instance->doSomething();
+}
+
+7. Be Mindful of Exception Handling
+C does not support exceptions, while C++ does.
+ When calling C++ code from C, ensure that 
+ exceptions are properly caught and handled within
+  the C++ code before returning to C.
+  
+   Do not let exceptions propagate across the C/C++ boundary.
+
+
+
+
