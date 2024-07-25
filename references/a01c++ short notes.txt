@@ -2256,7 +2256,8 @@ Look at design patterns like Singleton or Factory and analyze the code if need b
 
 OPERATOR OVERLOADING AND CONVERSION FUNCTIONS 
 
-Operator overloading is a mechanism thru which we can teach the system how to use an existing
+Operator overloading is a mechanism thru which we can
+ teach the system how to use an existing
 operator with a user defined data type 
 
 Key things are .
